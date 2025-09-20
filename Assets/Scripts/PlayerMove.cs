@@ -9,7 +9,7 @@ public class PlayerMove : MonoBehaviour
 
     private Vector3 inputVector;
     private Vector3 movementVector;
-    private float gravity = -9.81f;
+    private float myGravity = -10f;
 
 
     void Start()
@@ -26,11 +26,11 @@ public class PlayerMove : MonoBehaviour
 
     void GetInput()
     {
-        inputVector = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        inputVector = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
         inputVector.Normalize();
         inputVector = transform.TransformDirection(inputVector);
 
-        movementVector = (inputVector * playerSpeed) + (Vector3.up * gravity);
+        movementVector = (inputVector * playerSpeed) + (Vector3.up * myGravity);
     }
 
     void MovePlayer()
