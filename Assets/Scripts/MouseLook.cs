@@ -12,28 +12,28 @@ public class MouseLook : MonoBehaviour
 
     private void Start()
     {
-       // lock and hide the cursor
-       Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false; 
-
+        // lock and hide cursor
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
     void Update()
     {
         GetInput();
         ModifyInput();
         MovePlayer();
+        
     }
 
     void GetInput()
     {
-        xMousePos += Input.GetAxis("Mouse X");
+        xMousePos = Input.GetAxisRaw("Mouse X");
     }
 
     void ModifyInput()
     {
-
         xMousePos *= sensitivity * smoothing;
         smoothedMousePos = Mathf.Lerp(smoothedMousePos, xMousePos, 1f / smoothing);
+
     }
 
     void MovePlayer()
@@ -41,4 +41,6 @@ public class MouseLook : MonoBehaviour
         currentLookingPos += smoothedMousePos;
         transform.localRotation = Quaternion.AngleAxis(currentLookingPos, transform.up);
     }
+
+
 }
