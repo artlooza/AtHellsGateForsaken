@@ -41,4 +41,6 @@ public class MouseLook : MonoBehaviour
         currentLookingPos += smoothedMousePos;
         transform.localRotation = Quaternion.AngleAxis(currentLookingPos, transform.up);
     }
+
+
 }

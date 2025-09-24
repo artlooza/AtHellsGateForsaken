@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float playerSpeed = 20f;
+    public float playerSpeed = 10f;
+    public float momentumDamping = 5f;
+
+
     private CharacterController myCC;
     public Animator camAnim;
     private bool isWalking;
+
 
     private Vector3 inputVector;
     private Vector3 movementVector;
@@ -24,17 +28,29 @@ public class PlayerMove : MonoBehaviour
     {
         GetInput();
         MovePlayer();
-        CheckForHeadBob();
 
         camAnim.SetBool("isWalking", isWalking);
     }
 
     void GetInput()
     {
-        inputVector = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
-        inputVector.Normalize();
-        inputVector = transform.TransformDirection(inputVector);
+        // if we're hodling down wasd, then give us -1, 0,1 values
+        if(Input.GetKey(KeyCode.W) || 
+           Input.GetKey(KeyCode.A) || 
+           Input.GetKey(KeyCode.S) || 
+           Input.GetKey(KeyCode.D))
+        {
+            inputVector = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
+            inputVector.Normalize();
+            inputVector = transform.TransformDirection(inputVector);
 
+            isWalking = true;
+        }
+        else
+        {
+            inputVector = Vector3.Lerp(inputVector, Vector3.zero, momentumDamping * Time.deltaTime);
+            isWalking = false;
+        }
         movementVector = (inputVector * playerSpeed) + (Vector3.up * myGravity);
     }
 
@@ -43,15 +59,4 @@ public class PlayerMove : MonoBehaviour
         myCC.Move(movementVector * Time.deltaTime);
     }
 
-    void CheckForHeadBob()
-    {
-        if(myCC.velocity.magnitude>.1f)
-        {
-            isWalking = true;
-        }
-        else
-        {
-            isWalking = false;
-        }
-    }
 }
