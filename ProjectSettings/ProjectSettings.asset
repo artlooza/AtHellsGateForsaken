@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 28
-  productGUID: 49e1de260ce9e5346a4467d1916df78d
+  productGUID: adfd096309d03054ca3047ffc16d438e
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: "At Hell\u2019s Gate-Forsaken"
+  productName: realreal
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -842,14 +842,14 @@ PlayerSettings:
   editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: "At Hell\u2019s Gate-Forsaken"
+  metroPackageName: realreal
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: "At Hell\u2019s Gate-Forsaken"
+  metroApplicationDescription: realreal
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -918,13 +918,13 @@ PlayerSettings:
   qnxGraphicConfPath: 
   apiCompatibilityLevel: 6
   captureStartupLogs: {}
-  activeInputHandler: 2
+  activeInputHandler: 1
   windowsGamepadBackendHint: 0
-  cloudProjectId: 596c7da0-9325-4dad-95d4-792f6f0a9b74
+  cloudProjectId: 5fd24160-2f76-42ff-ad21-bd1cd799d8a1
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: "At Hell\u2019s Gate-Forsaken"
-  organizationId: uriosteguiedder
+  projectName: realreal
+  organizationId: aponteisaac97
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

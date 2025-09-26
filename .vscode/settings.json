@@ -60,11 +60,19 @@
         "*.asset": "yaml",
         "*.meta": "yaml",
         "*.prefab": "yaml",
+<<<<<<< Updated upstream
         "*.unity": "yaml",
     },
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.patterns": {
         "*.sln": "*.csproj",
+=======
+        "*.unity": "yaml"
+    },
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+        "*.sln": "*.csproj"
+>>>>>>> Stashed changes
     },
     "dotnet.defaultSolution": "AtHellsGateForsaken.sln"
 }
