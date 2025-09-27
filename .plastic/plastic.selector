@@ -1,4 +1,0 @@
-repository "At Hell’s Gate-Forsaken/At Hell’s Gate-Forsaken@20067512788742@cloud"
-  path "/"
-    br "/main"
-    co "/main"
