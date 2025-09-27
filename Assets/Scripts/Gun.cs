@@ -6,16 +6,21 @@ public class Gun : MonoBehaviour
 {
     public float range = 20f;
     public float verticalRange = 20f;
-    public float fireRate = 1f; // bullets per second
+    public float gunShotRadius = 20f;
+
     public float bigDamage = 2f;
     public float smallDamage = 1f;
+
+    public float fireRate = 1f; // bullets per second
     private float nextTimeToFire;
 
-    private BoxCollider gunTrigger;
 
+    public LayerMask raycastLayerMask;
+    public LayerMask enemyLayerMask;
+
+    private BoxCollider gunTrigger;
     public EnemyManager enemyManager;
     
-    public LayerMask raycastLayerMask;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,6 +43,15 @@ public class Gun : MonoBehaviour
 
     void Fire()
     {
+        // simulate gun shot radius
+        Collider[] enemyColliders;
+        enemyColliders = Physics.OverlapSphere(transform.position, gunShotRadius, enemyLayerMask);
+
+        // alert any enmy in earshot
+        foreach (var enemycollider in enemyColliders)
+        {
+            enemycollider.GetComponent<EnemyAwareness>().isAggro = true;
+        }
 
         //play test audio
         GetComponent<AudioSource>().Stop();
