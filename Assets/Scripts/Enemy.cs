@@ -5,6 +5,8 @@ public class Enemy : MonoBehaviour
     public EnemyManager enemyManager;
     private float enemyHealth = 2f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    public GameObject gunHitEffect;
     void Start()
     {
         
@@ -22,6 +24,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        Instantiate(gunHitEffect, transform.position, Quaternion.identity);
         enemyHealth -= damage;
     }
 
