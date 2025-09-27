@@ -38,8 +38,13 @@ public class Gun : MonoBehaviour
 
     void Fire()
     {
+
+        //play test audio
+        GetComponent<AudioSource>().Stop();
+        GetComponent<AudioSource>().Play();
+
         // damage enemies
-        foreach(var enemy in enemyManager.enemiesInTrigger)
+        foreach (var enemy in enemyManager.enemiesInTrigger)
         {
             var dir = enemy.transform.position - transform.position;
             RaycastHit hit;

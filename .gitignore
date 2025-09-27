@@ -99,3 +99,6 @@ InitTestScene*.unity*
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
 .plastic/plastic.changes
 .plastic/plastic.wktree
+.plastic/plastic.wktree
+*.changes
+.plastic/plastic.changes
