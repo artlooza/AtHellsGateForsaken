@@ -100,3 +100,4 @@ InitTestScene*.unity*
 .plastic/plastic.changes
 .plastic/plastic.wktree
 .plastic/plastic.wktree
+*.changes
