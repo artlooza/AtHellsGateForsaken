@@ -15,7 +15,7 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         health = maxHealth;
-        armor = maxArmor;
+        
     }
 
     // Update is called once per frame
@@ -63,4 +63,34 @@ public class PlayerHealth : MonoBehaviour
             SceneManager.LoadScene(currentScene.buildIndex);
         }
     }
+    public void GiveHealth(int amount, GameObject pickup)
+    {
+        if( health < maxHealth)
+        {
+            health += amount;
+            Destroy(pickup);
+        }
+
+
+        if(health > maxHealth)
+        {
+            health = maxHealth;
+        }
+    }
+    public void GiveArmor(int amount, GameObject pickup)
+    {
+        armor += amount;
+
+        if (armor < maxArmor)
+        {
+            armor += amount;
+            Destroy(pickup);
+        }
+
+        if (armor > maxArmor)
+        {
+            armor += maxArmor;
+        }
+    }
+
 }

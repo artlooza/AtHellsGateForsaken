@@ -14,6 +14,8 @@ public class Gun : MonoBehaviour
     public float fireRate = 1f; // bullets per second
     private float nextTimeToFire;
 
+    public int maxAmmo;
+    private int ammo;
 
     public LayerMask raycastLayerMask;
     public LayerMask enemyLayerMask;
@@ -34,7 +36,7 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0) && Time.time > nextTimeToFire)
+        if (Input.GetMouseButton(0) && Time.time > nextTimeToFire && ammo > 0)
         {
             Fire();
         }
@@ -95,6 +97,26 @@ public class Gun : MonoBehaviour
 
         //reset timer
         nextTimeToFire = Time.time + fireRate;
+
+        // deduct ammo
+        ammo--;
+    }
+
+
+    public void GiveAmmo(int amount, GameObject pickup)
+    {
+        ammo += amount;
+        if (ammo < maxAmmo)
+        {
+            ammo += maxAmmo;
+            Destroy(pickup);
+        }
+       
+        if(ammo > maxAmmo)
+        {
+            ammo = maxAmmo;
+
+        }
     }
 
     private void OnTriggerEnter(Collider other)
