@@ -31,6 +31,7 @@ public class Gun : MonoBehaviour
         gunTrigger.size = new Vector3(1, verticalRange, range);
         gunTrigger.center = new Vector3(0, 0, range * .5f);
 
+        ammo = maxAmmo;
     }
 
     // Update is called once per frame
@@ -83,8 +84,6 @@ public class Gun : MonoBehaviour
                         enemy.TakeDamage(bigDamage);
                     }
 
-
-        
 
                     //Debug.DrawRay(transform.position, dir, Color.green);
                     //Debug.Break();
