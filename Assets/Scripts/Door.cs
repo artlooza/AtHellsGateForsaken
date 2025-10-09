@@ -4,6 +4,8 @@ public class Door : MonoBehaviour
 {
     public Animator doorAnim;
 
+    public bool requiresKey;
+    public bool reqRed, reqGreen, reqBlue;
     public GameObject areaToSpawn;
 
 
@@ -12,10 +14,32 @@ public class Door : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            doorAnim.SetTrigger("OpenDoor");
+            if(requiresKey)
+            {
+                // do additioanl checks.
+                if(reqRed && other.GetComponent<PlayerInventory>().hasRed)
+                {
+                    doorAnim.SetTrigger("OpenDoor");
+                    areaToSpawn.SetActive(true);
+                }
+                if(reqBlue && other.GetComponent<PlayerInventory>().hasBlue)
+                {
+                    doorAnim.SetTrigger("OpenDoor");
+                    areaToSpawn.SetActive(true);
+                }
+                if(reqGreen && other.GetComponent<PlayerInventory>().hasGreen)
+                {
+                    doorAnim.SetTrigger("OpenDoor");
+                    areaToSpawn.SetActive(true);
+                }          
+            }
+            else
+            {
+                doorAnim.SetTrigger("OpenDoor");
+                areaToSpawn.SetActive(true);
 
+            }
             // spawn enemies in the area
-            areaToSpawn.SetActive(true);
         }
     }
 }
