@@ -86,14 +86,17 @@ public class PlayerHealth : MonoBehaviour
     }
     public void GiveArmor(int amount, GameObject pickup)
     {
-        armor += amount;
+        //armor += amount;
 
+        // if we use the pickup add the amount and destroy the Pikcup gameobject
         if (armor < maxArmor)
         {
             armor += amount;
             Destroy(pickup);
         }
 
+        /// we check if that pickup just went over our max allowed amount
+        /// set it to the max
         if (armor > maxArmor)
         {
             armor += maxArmor;

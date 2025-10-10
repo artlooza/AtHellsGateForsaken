@@ -50,7 +50,7 @@ public class CanvasManager : MonoBehaviour
     }
     public void UpdateAmmo(int ammoValue)
     {
-        armor.text = ammoValue.ToString();
+        ammo.text = ammoValue.ToString();
 
     }
 
