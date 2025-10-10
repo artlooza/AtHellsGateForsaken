@@ -4,12 +4,12 @@ public class EnemyAwareness : MonoBehaviour
 {
     public float awarenessRadius = 8;
     public bool isAggro;
-    public Material aggroMat;
     private Transform playerTransform;
 
     private void Start()
     {
-        playerTransform = FindObjectOfType<PlayerMove>().transform;
+        //playerTransform = FindObjectOfType<PlayerMove>().transform;
+        playerTransform = Object.FindFirstObjectByType<PlayerMove>().transform;
     }
 
     public void Update()
@@ -22,7 +22,7 @@ public class EnemyAwareness : MonoBehaviour
         }
         if (isAggro)
         {
-            GetComponent<MeshRenderer>().material = aggroMat;
+            // perhaps something later.
         }
     }
 

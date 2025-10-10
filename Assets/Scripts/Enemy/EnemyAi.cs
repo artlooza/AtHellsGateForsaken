@@ -9,7 +9,8 @@ public class EnemyAi : MonoBehaviour
     private void Start()
     {
        enemyAwareness = GetComponent<EnemyAwareness>();
-        playersTransform = FindObjectOfType<PlayerMove>().transform;
+        //playersTransform = FindObjectOfType<PlayerMove>().transform;
+        playersTransform = Object.FindFirstObjectByType<PlayerMove>().transform;
         enemyNavMeshAgent = GetComponent<NavMeshAgent>();
 
     }
