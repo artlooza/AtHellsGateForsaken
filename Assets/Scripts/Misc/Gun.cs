@@ -99,6 +99,7 @@ public class Gun : MonoBehaviour
 
         // deduct ammo
         ammo--;
+        CanvasManager.Instance.UpdateAmmo(ammo);
     }
 
 
@@ -116,6 +117,7 @@ public class Gun : MonoBehaviour
             ammo = maxAmmo;
 
         }
+        CanvasManager.Instance.UpdateAmmo(ammo);
     }
 
     private void OnTriggerEnter(Collider other)
