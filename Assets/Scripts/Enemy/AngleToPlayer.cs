@@ -1,17 +1,17 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class AlignThePlayer : MonoBehaviour
+public class AngleToPlayer : MonoBehaviour
 {
     private Transform player;
     private Vector3 targetPos;
     private Vector3 targetDir;
 
 
-    public SpriteRenderer spriteRenderer;
-    public Sprite[] Sprites; // 8 directions
+    private SpriteRenderer spriteRenderer;
 
-    public float angle;
+
+    private float angle;
     public int lastIndex;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,6 +19,7 @@ public class AlignThePlayer : MonoBehaviour
     {
         //player = FindObjectOfType<PlayerMove>().transform;
         player = Object.FindFirstObjectByType<PlayerMove>().transform;
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -41,7 +42,6 @@ public class AlignThePlayer : MonoBehaviour
 
         lastIndex = GetIndex(angle);
 
-        spriteRenderer.sprite = Sprites[lastIndex];
 
     }
 
