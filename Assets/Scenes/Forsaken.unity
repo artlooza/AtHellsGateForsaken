@@ -1237,7 +1237,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8525939dfc28d84ab67ecd590675023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  enemyManager: {fileID: 253181709}
   gunHitEffect: {fileID: 633279664527274446, guid: 092d703899c304d4aaa4602ea99982d4, type: 3}
 --- !u!135 &366461664
 SphereCollider:
@@ -1714,7 +1713,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8525939dfc28d84ab67ecd590675023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  enemyManager: {fileID: 253181709}
   gunHitEffect: {fileID: 633279664527274446, guid: 092d703899c304d4aaa4602ea99982d4, type: 3}
 --- !u!135 &563685734
 SphereCollider:
@@ -1998,7 +1996,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8525939dfc28d84ab67ecd590675023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  enemyManager: {fileID: 253181709}
   gunHitEffect: {fileID: 633279664527274446, guid: 092d703899c304d4aaa4602ea99982d4, type: 3}
 --- !u!135 &628146064
 SphereCollider:
@@ -3046,12 +3043,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764024421}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8525939dfc28d84ab67ecd590675023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  enemyManager: {fileID: 253181709}
   gunHitEffect: {fileID: 633279664527274446, guid: 092d703899c304d4aaa4602ea99982d4, type: 3}
 --- !u!114 &764024428
 MonoBehaviour:
@@ -3060,7 +3056,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764024421}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c52a27ab5b06c3c42acfdf466b7725be, type: 3}
   m_Name: 
@@ -3095,7 +3091,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764024421}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 646ad61eded6a1547abd2db4d407e87a, type: 3}
   m_Name: 
@@ -3107,7 +3103,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764024421}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 7
@@ -3213,7 +3209,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8525939dfc28d84ab67ecd590675023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  enemyManager: {fileID: 253181709}
   gunHitEffect: {fileID: 633279664527274446, guid: 092d703899c304d4aaa4602ea99982d4, type: 3}
 --- !u!135 &799504950
 SphereCollider:
@@ -3818,7 +3813,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8525939dfc28d84ab67ecd590675023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  enemyManager: {fileID: 253181709}
   gunHitEffect: {fileID: 633279664527274446, guid: 092d703899c304d4aaa4602ea99982d4, type: 3}
 --- !u!135 &897301266
 SphereCollider:
@@ -4047,7 +4041,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8525939dfc28d84ab67ecd590675023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  enemyManager: {fileID: 253181709}
   gunHitEffect: {fileID: 633279664527274446, guid: 092d703899c304d4aaa4602ea99982d4, type: 3}
 --- !u!135 &941216558
 SphereCollider:
@@ -6244,7 +6237,7 @@ Transform:
   m_GameObject: {fileID: 1714992877}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -3}
+  m_LocalPosition: {x: 0, y: 1, z: -9.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
