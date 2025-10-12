@@ -19,7 +19,8 @@ public class Enemy : MonoBehaviour
         spriteAnim = GetComponentInChildren<Animator>();
         angleToPlayer = GetComponent<AngleToPlayer>();
 
-        enemyManager = FindObjectOfType<EnemyManager>(); // we can do this bvecause there's only one EnemyManager in the scene
+        //enemyManager = FindObjectOfType<EnemyManager>(); // we can do this bvecause there's only one EnemyManager in the scene
+        enemyManager = UnityEngine.Object.FindFirstObjectByType<EnemyManager>();
         //enemyManager = Object.FindFirstObjectByType<EnemyManager>();
     }
 
