@@ -28,8 +28,6 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         if (Input.GetKeyDown(KeyCode.RightShift))
         {
             DamagePlayer(30);
@@ -40,7 +38,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (armor > 0)
         {
-            playerArmorDamaged.Play();
+            //playerArmorDamaged.Play();
             if (armor >= damage)
             {
                 armor -= damage;
@@ -58,7 +56,7 @@ public class PlayerHealth : MonoBehaviour
         }
         else
         {
-            playerHealthDamaged.Play();
+            //playerHealthDamaged.Play();
             health -= damage;
         }
         if (health <= 0)
