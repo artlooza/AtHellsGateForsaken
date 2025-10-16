@@ -1029,6 +1029,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ammo
       objectReference: {fileID: 0}
+    - target: {fileID: 4621905329227513033, guid: 429aef87d6aa0ed42bf8c7e61fd8dc42, type: 3}
+      propertyPath: amount
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1766,6 +1770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646ad61eded6a1547abd2db4d407e87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  moveSpeed: 2
 --- !u!114 &366461662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2358,6 +2363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646ad61eded6a1547abd2db4d407e87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  moveSpeed: 2
 --- !u!114 &563685732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2641,6 +2647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646ad61eded6a1547abd2db4d407e87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  moveSpeed: 2
 --- !u!114 &628146062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3878,6 +3885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646ad61eded6a1547abd2db4d407e87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  moveSpeed: 10
 --- !u!195 &764024431
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3965,6 +3973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646ad61eded6a1547abd2db4d407e87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  moveSpeed: 2
 --- !u!114 &799504948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4680,6 +4689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646ad61eded6a1547abd2db4d407e87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  moveSpeed: 2
 --- !u!114 &897301264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4908,6 +4918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646ad61eded6a1547abd2db4d407e87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  moveSpeed: 2
 --- !u!114 &941216556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5656,7 +5667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ffee2fb813edd8b41bd2dec1a9c1b0e3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.042
+      value: -0.04
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ffee2fb813edd8b41bd2dec1a9c1b0e3, type: 3}
       propertyPath: m_LocalPosition.y

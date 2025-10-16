@@ -12,6 +12,11 @@ public class PlayerHealth : MonoBehaviour
     public int maxArmor;
     private int armor;
 
+    public GameObject damageEffect; // Player damaged effect
+
+    public AudioSource playerArmorDamaged;// Player damged armor
+    public AudioSource playerHealthDamaged; // Player damaged health
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -33,10 +38,9 @@ public class PlayerHealth : MonoBehaviour
     }
     public void DamagePlayer(int damage)
     {
-
         if (armor > 0)
         {
-
+            playerArmorDamaged.Play();
             if (armor >= damage)
             {
                 armor -= damage;
@@ -54,6 +58,7 @@ public class PlayerHealth : MonoBehaviour
         }
         else
         {
+            playerHealthDamaged.Play();
             health -= damage;
         }
         if (health <= 0)
