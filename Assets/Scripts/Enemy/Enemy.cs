@@ -46,7 +46,7 @@ public class Enemy : MonoBehaviour
         enemyHealth -= damage;
     }
 
-    //// This'll be activated Enemy touches 
+    // This'll be activated Enemy touches 
     private void OnTriggerEnter(Collider other)
     {
         //Debug.Log("Enemy Triggered by " + other.name);
@@ -61,60 +61,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-
-    // Handle contact damage to player
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    Debug.Log("Enemy Triggered by " + other.name + " with tag: " + other.tag);
-
-    //    // Check if it's the player directly OR a child of the player (like Gun)
-    //    PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
-
-    //    // If no PlayerHealth on this object, check the parent
-    //    if (playerHealth == null)
-    //    {
-    //        playerHealth = other.GetComponentInParent<PlayerHealth>();
-    //    }
-
-    //    // If still no PlayerHealth, check if this object has "Player" tag or parent does
-    //    if (playerHealth == null && other.CompareTag("Player"))
-    //    {
-    //        playerHealth = other.GetComponent<PlayerHealth>();
-    //    }
-
-    //    if (playerHealth != null)
-    //    {
-    //        Debug.Log("PlayerHealth found! Dealing " + (int)contactDamage + " damage");
-    //        playerHealth.DamagePlayer((int)contactDamage);
-    //    }
-    //    else
-    //    {
-    //        Debug.Log("No PlayerHealth found on " + other.name + " or its parent");
-    //    }
-    //}
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    Debug.Log("Enemy Triggered by " + other.name + " with tag: " + other.tag);
-
-    //    // Only damage if it's specifically the Player, not the Gun or other child objects
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
-    //        if (playerHealth != null)
-    //        {
-    //            Debug.Log("PlayerHealth found! Dealing " + (int)contactDamage + " damage");
-    //            playerHealth.DamagePlayer((int)contactDamage);
-    //        }
-    //        else
-    //        {
-    //            Debug.Log("No PlayerHealth found on Player object");
-    //        }
-    //    }
-    //    else if (other.name.Contains("Gun"))
-    //    {
-    //        Debug.Log("Gun detected, but not dealing contact damage - use a smaller enemy collider for contact damage");
-    //    }
-    //}
 
     private void OnTriggerStay(Collider other)
     {

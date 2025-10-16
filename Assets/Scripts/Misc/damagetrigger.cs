@@ -14,8 +14,6 @@ public class damagetrigger : MonoBehaviour
     void Start()
     {
         damageCounter = timeBetweenDamage;
-        //playerHealth = FindObjectOfType<PlayerHealth>();
-        //playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         playerHealth = Object.FindFirstObjectByType<PlayerHealth>();
     }
     void Update()
