@@ -212,7 +212,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -259,6 +259,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8525939dfc28d84ab67ecd590675023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  contactDamage: 20
+  damageRate: 1
   gunHitEffect: {fileID: 633279664527274446, guid: 092d703899c304d4aaa4602ea99982d4, type: 3}
 --- !u!114 &8829965057706984471
 MonoBehaviour:
@@ -286,6 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646ad61eded6a1547abd2db4d407e87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  moveSpeed: 2
 --- !u!114 &6748741178373698502
 MonoBehaviour:
   m_ObjectHideFlags: 0
