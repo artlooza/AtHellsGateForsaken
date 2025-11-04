@@ -262,6 +262,8 @@ MonoBehaviour:
   contactDamage: 20
   damageRate: 1
   gunHitEffect: {fileID: 633279664527274446, guid: 092d703899c304d4aaa4602ea99982d4, type: 3}
+  flashDuration: 0.3
+  flashColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &8829965057706984471
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -84,6 +84,8 @@ public class Gun : MonoBehaviour
                         enemy.TakeDamage(bigDamage);
                     }
 
+                    // Show hit marker on reticle
+                    CanvasManager.Instance.ShowHitMarker();
 
                     //Debug.DrawRay(transform.position, dir, Color.green);
                     //Debug.Break();

@@ -22,6 +22,8 @@ public class CanvasManager : MonoBehaviour
     public GameObject blueKey;
     public GameObject greenKey;
 
+    public Reticle reticle; // reference to reticle script
+
 
     private static CanvasManager _instance;
     public static CanvasManager Instance { get { return _instance; } }
@@ -95,5 +97,13 @@ public class CanvasManager : MonoBehaviour
         redKey.SetActive(false);
         blueKey.SetActive(false);
         greenKey.SetActive(false);
+    }
+
+    public void ShowHitMarker()
+    {
+        if(reticle != null)
+        {
+            reticle.ShowHitMarker();
+        }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -6,6 +7,7 @@ public class Enemy : MonoBehaviour
     private EnemyManager enemyManager;
     private Animator spriteAnim;
     private AngleToPlayer angleToPlayer;
+    private SpriteRenderer spriteRenderer;
 
 
     private float enemyHealth = 2f;
@@ -17,9 +19,13 @@ public class Enemy : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public GameObject gunHitEffect;
+    public float flashDuration = 0.1f; // how long the red flash lasts
+    public Color flashColor = Color.red; // color to flash
+
     void Start()
     {
         spriteAnim = GetComponentInChildren<Animator>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         angleToPlayer = GetComponent<AngleToPlayer>();
 
         enemyManager = UnityEngine.Object.FindFirstObjectByType<EnemyManager>();
@@ -44,6 +50,27 @@ public class Enemy : MonoBehaviour
     {
         Instantiate(gunHitEffect, transform.position, Quaternion.identity);
         enemyHealth -= damage;
+
+        // Flash red when taking damage
+        if(spriteRenderer != null)
+        {
+            StartCoroutine(FlashRed());
+        }
+    }
+
+    private IEnumerator FlashRed()
+    {
+        // Store original color
+        Color originalColor = spriteRenderer.color;
+
+        // Flash to red
+        spriteRenderer.color = flashColor;
+
+        // Wait for flash duration
+        yield return new WaitForSeconds(flashDuration);
+
+        // Return to original color
+        spriteRenderer.color = originalColor;
     }
 
     // This'll be activated Enemy touches 

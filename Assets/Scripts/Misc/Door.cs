@@ -20,23 +20,27 @@ public class Door : MonoBehaviour
                 if(reqRed && other.GetComponent<PlayerInventory>().hasRed)
                 {
                     doorAnim.SetTrigger("OpenDoor");
-                    areaToSpawn.SetActive(true);
+                    if(areaToSpawn != null)
+                        areaToSpawn.SetActive(true);
                 }
                 if(reqBlue && other.GetComponent<PlayerInventory>().hasBlue)
                 {
                     doorAnim.SetTrigger("OpenDoor");
-                    areaToSpawn.SetActive(true);
+                    if(areaToSpawn != null)
+                        areaToSpawn.SetActive(true);
                 }
                 if(reqGreen && other.GetComponent<PlayerInventory>().hasGreen)
                 {
                     doorAnim.SetTrigger("OpenDoor");
-                    areaToSpawn.SetActive(true);
+                    if(areaToSpawn != null)
+                        areaToSpawn.SetActive(true);
                 }          
             }
             else
             {
                 doorAnim.SetTrigger("OpenDoor");
-                areaToSpawn.SetActive(true);
+                if(areaToSpawn != null)
+                    areaToSpawn.SetActive(true);
 
             }
             // spawn enemies in the area
