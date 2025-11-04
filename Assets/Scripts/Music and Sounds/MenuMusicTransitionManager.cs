@@ -7,12 +7,12 @@ public class MusicManager : MonoBehaviour
     public static MusicManager Instance;
 
     [Header("Sources")]
-    public AudioSource menuSource;     // drag your menu Audio Source here
-    public AudioSource gameplaySource; // drag your gameplay Audio Source here
+    public AudioSource menuSource;     
+    public AudioSource gameplaySource; 
 
     [Header("Audio Clips")]
-    public AudioClip menuClip;         // drag your menu music file here
-    public AudioClip gameplayClip;     // drag your Forsaken level music here
+    public AudioClip menuClip;         
+    public AudioClip gameplayClip;    
 
     public float fadeSeconds = 2f;
 
