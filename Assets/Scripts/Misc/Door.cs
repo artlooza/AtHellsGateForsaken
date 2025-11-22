@@ -17,7 +17,11 @@ public class Door : MonoBehaviour
             if(requiresKey)
             {
                 // do additioanl checks.
-                if(reqRed && other.GetComponent<PlayerInventory>().hasRed)
+                GetComponent<AudioSource>().Stop();
+                GetComponent<AudioSource>().Play();
+
+
+                if (reqRed && other.GetComponent<PlayerInventory>().hasRed)
                 {
                     doorAnim.SetTrigger("OpenDoor");
                     if(areaToSpawn != null)

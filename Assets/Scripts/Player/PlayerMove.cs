@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float playerSpeed = 10f;
+    [Header("Movement Speeds")]
+    public float walkSpeed = 7f;
+    public float sprintSpeed = 12f;
     public float momentumDamping = 5f;
 
+    [Header("Sprint Settings")]
+    public KeyCode sprintKey = KeyCode.LeftShift;
 
     private CharacterController myCC;
     public Animator camAnim;
     private bool isWalking;
+    private bool isSprinting;
 
-
+    private float currentSpeed;
     private Vector3 inputVector;
     private Vector3 movementVector;
     private float myGravity = -10f;
@@ -30,14 +35,21 @@ public class PlayerMove : MonoBehaviour
         MovePlayer();
 
         camAnim.SetBool("isWalking", isWalking);
+        camAnim.SetBool("isRunning", isSprinting);
     }
 
     void GetInput()
     {
-        // if we're hodling down wasd, then give us -1, 0,1 values
-        if(Input.GetKey(KeyCode.W) || 
-           Input.GetKey(KeyCode.A) || 
-           Input.GetKey(KeyCode.S) || 
+        // Check if sprinting (only works while moving forward)
+        isSprinting = Input.GetKey(sprintKey) && Input.GetKey(KeyCode.W);
+
+        // Determine current speed based on sprint state
+        currentSpeed = isSprinting ? sprintSpeed : walkSpeed;
+
+        // if we're holding down wasd, then give us -1, 0, 1 values
+        if(Input.GetKey(KeyCode.W) ||
+           Input.GetKey(KeyCode.A) ||
+           Input.GetKey(KeyCode.S) ||
            Input.GetKey(KeyCode.D))
         {
             inputVector = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
@@ -50,8 +62,9 @@ public class PlayerMove : MonoBehaviour
         {
             inputVector = Vector3.Lerp(inputVector, Vector3.zero, momentumDamping * Time.deltaTime);
             isWalking = false;
+            isSprinting = false;
         }
-        movementVector = (inputVector * playerSpeed) + (Vector3.up * myGravity);
+        movementVector = (inputVector * currentSpeed) + (Vector3.up * myGravity);
     }
 
     void MovePlayer()
