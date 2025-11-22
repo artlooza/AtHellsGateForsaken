@@ -61,11 +61,10 @@ public class PlayerHealth : MonoBehaviour
         }
         if (health <= 0)
         {
-
             Debug.Log("Player is dead!");
 
-            Scene currentScene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(currentScene.buildIndex);
+            // Load main menu scene
+            SceneManager.LoadScene("Main Menu Scene IA");
         }
 
         CanvasManager.Instance.UpdateHealth(health);
