@@ -354,6 +354,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Definite Shotgun Animation
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 1e6e735cc884665428d74a468e8d83aa, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 060dbf5c4b3c0424397e1722e020fbbb, type: 2}
     - target: {fileID: 8879528566716807029, guid: 1e6e735cc884665428d74a468e8d83aa, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.223
@@ -3696,6 +3700,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   enemyManager: {fileID: 253181709}
+  camAnim: {fileID: 1658758245}
 --- !u!65 &822643313
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7741,6 +7746,11 @@ MeshFilter:
 --- !u!4 &1658758244 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1e6e735cc884665428d74a468e8d83aa, type: 3}
+  m_PrefabInstance: {fileID: 154250878}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1658758245 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 1e6e735cc884665428d74a468e8d83aa, type: 3}
   m_PrefabInstance: {fileID: 154250878}
   m_PrefabAsset: {fileID: 0}
 --- !u!43 &1689999373

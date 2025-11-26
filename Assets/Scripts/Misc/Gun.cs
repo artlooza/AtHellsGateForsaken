@@ -22,7 +22,11 @@ public class Gun : MonoBehaviour
 
     private BoxCollider gunTrigger;
     public EnemyManager enemyManager;
-    
+
+    public Animator camAnim;
+    public Animator gunAnim; // Assign your shotgun's Animator in Inspector
+    private bool isShooting;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -40,6 +44,9 @@ public class Gun : MonoBehaviour
         if (Input.GetMouseButton(0) && Time.time > nextTimeToFire && ammo > 0)
         {
             Fire();
+            
+            camAnim.SetBool("isShooting", isShooting);
+
         }
 
     }
@@ -59,6 +66,14 @@ public class Gun : MonoBehaviour
         //play test audio
         GetComponent<AudioSource>().Stop();
         GetComponent<AudioSource>().Play();
+
+        // Play shooting animation
+        if (gunAnim != null)
+        {
+            gunAnim.Play("Shooting", 0, 0f);
+        }
+
+
 
         // damage enemies
         foreach (var enemy in enemyManager.enemiesInTrigger)
@@ -146,4 +161,6 @@ public class Gun : MonoBehaviour
 
         }
     }
+
+
 }
