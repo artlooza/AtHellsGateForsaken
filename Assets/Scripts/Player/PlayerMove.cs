@@ -34,8 +34,11 @@ public class PlayerMove : MonoBehaviour
         GetInput();
         MovePlayer();
 
-        camAnim.SetBool("isWalking", isWalking);
-        camAnim.SetBool("isRunning", isSprinting);
+        if (camAnim != null)
+        {
+            camAnim.SetBool("isWalking", isWalking);
+            camAnim.SetBool("isRunning", isSprinting);
+        }
     }
 
     void GetInput()
@@ -61,6 +64,13 @@ public class PlayerMove : MonoBehaviour
         else
         {
             inputVector = Vector3.Lerp(inputVector, Vector3.zero, momentumDamping * Time.deltaTime);
+
+            // Kill tiny residual movement to prevent drift
+            if (inputVector.magnitude < 0.01f)
+            {
+                inputVector = Vector3.zero;
+            }
+
             isWalking = false;
             isSprinting = false;
         }

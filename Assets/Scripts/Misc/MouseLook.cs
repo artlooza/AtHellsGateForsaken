@@ -39,7 +39,7 @@ public class MouseLook : MonoBehaviour
     void MovePlayer()
     {
         currentLookingPos += smoothedMousePos;
-        transform.localRotation = Quaternion.AngleAxis(currentLookingPos, transform.up);
+        transform.rotation = Quaternion.Euler(0f, currentLookingPos, 0f);
     }
 
 

@@ -23,10 +23,12 @@ public class Gun : MonoBehaviour
     private BoxCollider gunTrigger;
     public EnemyManager enemyManager;
 
-    public Animator camAnim;
     public Animator gunAnim; // Assign your shotgun's Animator in Inspector
-    private bool isShooting;
+    public PlayerMove playerMove; // Assign the player to check movement state
 
+    private bool isShooting = false;
+    private float shootAnimDuration = 0.5f; // Adjust to match your shooting animation length
+    private float shootAnimEndTime;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,19 +38,52 @@ public class Gun : MonoBehaviour
         gunTrigger.center = new Vector3(0, 0, range * .5f);
 
         ammo = maxAmmo;
+
+        // Auto-find PlayerMove if not assigned
+        if (playerMove == null)
+        {
+            playerMove = FindFirstObjectByType<PlayerMove>();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Check if shooting animation has finished
+        if (isShooting && Time.time >= shootAnimEndTime)
+        {
+            isShooting = false;
+        }
+
+        // Handle shooting
         if (Input.GetMouseButton(0) && Time.time > nextTimeToFire && ammo > 0)
         {
             Fire();
-            
-            camAnim.SetBool("isShooting", isShooting);
-
         }
+        // Handle walking animation (only when not shooting)
+        else if (gunAnim != null && !isShooting)
+        {
+            bool isMoving = playerMove != null &&
+                (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) ||
+                 Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D));
 
+            if (isMoving)
+            {
+                // Play walking animation if not already playing
+                if (!gunAnim.GetCurrentAnimatorStateInfo(0).IsName("Walking"))
+                {
+                    gunAnim.Play("Walking", 0, 0f);
+                }
+            }
+            else
+            {
+                // Return to idle when not moving
+                if (!gunAnim.GetCurrentAnimatorStateInfo(0).IsName("Shotgun|Idle"))
+                {
+                    gunAnim.Play("Shotgun|Idle", 0, 0f);
+                }
+            }
+        }
     }
 
     void Fire()
@@ -65,13 +100,17 @@ public class Gun : MonoBehaviour
 
         //play test audio
         GetComponent<AudioSource>().Stop();
-        GetComponent<AudioSource>().Play();
 
         // Play shooting animation
         if (gunAnim != null)
         {
             gunAnim.Play("Shooting", 0, 0f);
+            isShooting = true;
+            shootAnimEndTime = Time.time + shootAnimDuration;
         }
+        GetComponent<AudioSource>().Play();
+
+
 
 
 
