@@ -63,7 +63,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("EnemySpawner: Trigger entered by " + other.name + " (Tag: " + other.tag + ")");
+        //Debug.Log("EnemySpawner: Trigger entered by " + other.name + " (Tag: " + other.tag + ")");
 
         if (other.CompareTag("Player") && !isActive && !isCompleted)
         {
@@ -161,7 +161,7 @@ public class EnemySpawner : MonoBehaviour
         {
             GameObject newEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
             spawnedEnemies.Add(newEnemy);
-            Debug.Log("EnemySpawner: Spawned enemy at " + spawnPosition);
+            //Debug.Log("EnemySpawner: Spawned enemy at " + spawnPosition);
         }
         else
         {

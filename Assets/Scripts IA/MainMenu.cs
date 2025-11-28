@@ -3,8 +3,15 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour 
+public class MainMenu : MonoBehaviour
 {
+    void Start()
+    {
+        // Ensure cursor is visible and unlocked on main menu
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
     public void Play()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

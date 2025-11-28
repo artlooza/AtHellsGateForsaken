@@ -63,6 +63,10 @@ public class PlayerHealth : MonoBehaviour
         {
             Debug.Log("Player is dead!");
 
+            // Unlock cursor before returning to menu
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
             // Load main menu scene
             SceneManager.LoadScene("Main Menu Scene IA");
         }

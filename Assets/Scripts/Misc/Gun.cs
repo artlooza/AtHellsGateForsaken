@@ -119,7 +119,8 @@ public class Gun : MonoBehaviour
         {
             var dir = enemy.transform.position - transform.position;
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, dir, out hit, range * 1.5f, raycastLayerMask))
+            Vector3 rayStart = transform.position + transform.forward * 1f; // Start ray in front of gun
+            if (Physics.Raycast(rayStart, dir, out hit, range * 1.5f, raycastLayerMask))
             {
                 if(hit.transform == enemy.transform)
                 {

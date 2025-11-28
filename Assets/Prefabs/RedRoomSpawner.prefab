@@ -58,6 +58,9 @@ MonoBehaviour:
   keySpawnPoint: {fileID: 0}
   isActive: 0
   isCompleted: 0
+  startActiveOnPlay: 0
+  stopWhenPlayerLeaves: 0
+  useDistanceDetection: 1
 --- !u!65 &6354623697819682953
 BoxCollider:
   m_ObjectHideFlags: 0

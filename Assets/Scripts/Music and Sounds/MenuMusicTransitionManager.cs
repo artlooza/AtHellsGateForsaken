@@ -27,7 +27,7 @@ public class MusicManager : MonoBehaviour
         if (menuSource && menuClip)
         {
             menuSource.clip = menuClip;
-            menuSource.volume = 1f;
+            menuSource.volume = AudioSettings.GetMusicVolume();
             menuSource.loop = true;
             menuSource.Play();
         }
@@ -71,17 +71,18 @@ public class MusicManager : MonoBehaviour
         float t = 0f;
         float fromStart = from ? from.volume : 0f;
         float toStart = to ? to.volume : 0f;
+        float targetVolume = AudioSettings.GetMusicVolume();
 
         while (t < seconds)
         {
             t += Time.deltaTime;
             float k = Mathf.Clamp01(t / seconds);
             if (from) from.volume = Mathf.Lerp(fromStart, 0f, k);
-            if (to) to.volume = Mathf.Lerp(toStart, 1f, k);
+            if (to) to.volume = Mathf.Lerp(toStart, targetVolume, k);
             yield return null;
         }
 
         if (from) { from.volume = 0f; from.Stop(); }
-        if (to) to.volume = 1f;
+        if (to) to.volume = targetVolume;
     }
 }
