@@ -1781,7 +1781,7 @@ Light:
   serializedVersion: 11
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.87
+  m_Intensity: 1.92
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1824,7 +1824,7 @@ Light:
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 6192
+  m_ColorTemperature: 4448
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -3568,7 +3568,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 5faf1dd6f3b44f24fb43b83d4683ae5e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 0.212
   m_Pitch: 0.93
   Loop: 0
   Mute: 0
@@ -6172,7 +6172,7 @@ Transform:
   m_GameObject: {fileID: 1405133636}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.9999036, z: -0, w: -0.013884967}
-  m_LocalPosition: {x: -25.49, y: 1.656, z: 6.54}
+  m_LocalPosition: {x: -25.49, y: 1.656, z: 6.85}
   m_LocalScale: {x: 25.08, y: 3.63, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7356,6 +7356,8 @@ MonoBehaviour:
   momentumDamping: 5
   sprintKey: 304
   camAnim: {fileID: 330585548}
+  footstepSound: {fileID: 8300000, guid: 4305f2c42703161408b2dc20a71d1487, type: 3}
+  footstepVolume: 0.096
 --- !u!114 &1714992883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7385,8 +7387,8 @@ MonoBehaviour:
   maxHealth: 100
   maxArmor: 10
   damageEffect: {fileID: 0}
-  playerArmorDamaged: {fileID: 0}
-  playerHealthDamaged: {fileID: 0}
+  armorDamagedClip: {fileID: 8300000, guid: e543707d4f0adc44db3dd68e7daa4b5b, type: 3}
+  healthDamagedClip: {fileID: 8300000, guid: f0c0335d139b93a4c825db068a592c7b, type: 3}
 --- !u!114 &1714992885
 MonoBehaviour:
   m_ObjectHideFlags: 0

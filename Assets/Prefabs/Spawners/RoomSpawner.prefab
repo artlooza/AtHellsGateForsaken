@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6194137193834499877}
   - component: {fileID: 6354623697819682953}
   m_Layer: 0
-  m_Name: RedRoomSpawner
+  m_Name: RoomSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

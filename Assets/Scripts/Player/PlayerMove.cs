@@ -23,21 +23,52 @@ public class PlayerMove : MonoBehaviour
     private float myGravity = -10f;
 
 
+    [Header("Audio")]
+    public AudioClip footstepSound;
+    [Range(0f, 1f)]
+    public float footstepVolume = 0.5f;
+    private AudioSource audioSource;
+
     void Start()
     {
         myCC = GetComponent<CharacterController>();
-
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+            audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     void Update()
     {
         GetInput();
         MovePlayer();
+        HandleFootsteps();
 
         if (camAnim != null)
         {
             camAnim.SetBool("isWalking", isWalking);
             camAnim.SetBool("isRunning", isSprinting);
+        }
+    }
+
+    void HandleFootsteps()
+    {
+        if (isWalking && myCC.isGrounded && footstepSound != null)
+        {
+            // Only play if not already playing
+            if (!audioSource.isPlaying)
+            {
+                audioSource.clip = footstepSound;
+                audioSource.volume = footstepVolume;
+                audioSource.Play();
+            }
+        }
+        else
+        {
+            // Stop the sound when not walking
+            if (audioSource.isPlaying && audioSource.clip == footstepSound)
+            {
+                audioSource.Stop();
+            }
         }
     }
 

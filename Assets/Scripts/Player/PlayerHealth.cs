@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using JetBrains.Annotations;
 
+
 public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100;
@@ -14,8 +15,12 @@ public class PlayerHealth : MonoBehaviour
 
     public GameObject damageEffect; // Player damaged effect
 
-    public AudioSource playerArmorDamaged;// Player damged armor
-    public AudioSource playerHealthDamaged; // Player damaged health
+    [Header("Audio")]
+    public AudioClip armorDamagedClip;  // Drag .wav file here
+    public AudioClip healthDamagedClip; // Drag .wav file here
+    private AudioSource audioSource;
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,6 +28,11 @@ public class PlayerHealth : MonoBehaviour
         health = maxHealth;
         CanvasManager.Instance.UpdateHealth(health);
         CanvasManager.Instance.UpdateArmor(armor);
+
+        // Get or add AudioSource for playing damage sounds
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+            audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -38,7 +48,9 @@ public class PlayerHealth : MonoBehaviour
     {
         if (armor > 0)
         {
-            //playerArmorDamaged.Play();
+            if (armorDamagedClip != null)
+                audioSource.PlayOneShot(armorDamagedClip);
+
             if (armor >= damage)
             {
                 armor -= damage;
@@ -56,7 +68,8 @@ public class PlayerHealth : MonoBehaviour
         }
         else
         {
-            //playerHealthDamaged.Play();
+            if (healthDamagedClip != null)
+                audioSource.PlayOneShot(healthDamagedClip);
             health -= damage;
         }
         if (health <= 0)
