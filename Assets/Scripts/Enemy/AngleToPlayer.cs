@@ -8,7 +8,9 @@ public class AngleToPlayer : MonoBehaviour
     private Vector3 targetDir;
 
 
-    private SpriteRenderer spriteRenderer;
+    // Temporary
+    public SpriteRenderer spriteRenderer;
+    public Sprite[] sprites;
 
 
     private float angle;

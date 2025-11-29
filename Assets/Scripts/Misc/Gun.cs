@@ -92,10 +92,23 @@ public class Gun : MonoBehaviour
         Collider[] enemyColliders;
         enemyColliders = Physics.OverlapSphere(transform.position, gunShotRadius, enemyLayerMask);
 
-        // alert any enmy in earshot
+        // alert any enemy in earshot
         foreach (var enemycollider in enemyColliders)
         {
-            enemycollider.GetComponent<EnemyAwareness>().isAggro = true;
+            // Check for regular enemy awareness
+            EnemyAwareness awareness = enemycollider.GetComponent<EnemyAwareness>();
+            if (awareness != null)
+            {
+                awareness.isAggro = true;
+                continue;
+            }
+
+            // Check for Boss awareness
+            Boss boss = enemycollider.GetComponent<Boss>();
+            if (boss != null)
+            {
+                boss.isAggro = true;
+            }
         }
 
         //play test audio
