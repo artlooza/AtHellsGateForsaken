@@ -136,9 +136,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a774b92635885f41adc669e9dd28193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss
+  currentPhase: 1
+  phase1Health: 50
+  phase2Health: 75
+  attackDuration: 8
+  reloadDuration: 7
+  weakPointMultiplier: 2
+  weakPointAngle: 60
   maxHealth: 50
   contactDamage: 30
   damageRate: 1
+  phase1AttackCooldown: 0.5
+  phase1ProjectileSpeed: 12
+  phase1Damage: 10
+  phase2AttackCooldown: 0.3
+  phase2ProjectileSpeed: 8
+  phase2Damage: 20
+  spiralProjectileCount: 12
+  ringProjectileCount: 16
+  patternDuration: 3
   projectilePrefab: {fileID: 7433395122334750811, guid: 8a2d85cdbc30f744c82e3a9f40414c8b, type: 3}
   firePoint: {fileID: 0}
   attackRange: 15
@@ -153,9 +169,14 @@ MonoBehaviour:
   flashDuration: 0.1
   flashColor: {r: 1, g: 0, b: 0, a: 1}
   deathAnimationLength: 1
+  transitionDuration: 4
+  powerUpSound: {fileID: 8300000, guid: ffa4044670cf7634bb2af8c38ad4ee3a, type: 3}
+  powerUpFlashColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   attackSound: {fileID: 8300000, guid: e7d26fd4a0c73274e979088c03d3b043, type: 3}
   hurtSound: {fileID: 8300000, guid: f0c0335d139b93a4c825db068a592c7b, type: 3}
   deathSound: {fileID: 8300000, guid: 23c9ef6514cddd34990257ee4b18b6d1, type: 3}
+  phase1Name: Pablo
+  phase2Name: Pablo the Destroyer
 --- !u!1 &5727662370554252322
 GameObject:
   m_ObjectHideFlags: 0

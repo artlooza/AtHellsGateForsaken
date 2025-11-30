@@ -80,6 +80,10 @@ public class Boss : MonoBehaviour
     public AudioClip deathSound;
     private AudioSource audioSource;
 
+    [Header("UI")]
+    public string phase1Name = "Pablo";
+    public string phase2Name = "Pablo the Destroyer";
+
     private EnemyManager enemyManager;
     private SpriteRenderer spriteRenderer;
     private Animator spriteAnim;
@@ -130,7 +134,10 @@ public class Boss : MonoBehaviour
 
         // Check if player is within awareness radius
         if (!isAggro && distanceToPlayer <= awarenessRadius)
+        {
             isAggro = true;
+            CanvasManager.Instance.ShowBossHealthBar(this, phase1Name);
+        }
 
         // Don't move or attack until aggro
         if (!isAggro) return;
@@ -138,10 +145,15 @@ public class Boss : MonoBehaviour
         // Handle attack interval timing
         HandleAttackInterval();
 
-        // Movement - try to maintain preferred distance
+        // Movement - try to maintain preferred distance (but not during reload!)
         if (navAgent != null && navAgent.isOnNavMesh)
         {
-            if (distanceToPlayer > preferredDistance + 2f)
+            if (isReloading)
+            {
+                // During reload, stop moving - player's chance to flank!
+                navAgent.SetDestination(transform.position);
+            }
+            else if (distanceToPlayer > preferredDistance + 2f)
             {
                 // Move closer
                 navAgent.SetDestination(playerTransform.position);
@@ -259,6 +271,9 @@ public class Boss : MonoBehaviour
 
         currentHealth -= finalDamage;
 
+        // Update health bar
+        CanvasManager.Instance.UpdateBossHealth(currentHealth);
+
         Debug.Log($"[BOSS: {gameObject.name}] Health after: {currentHealth}");
 
         // Phase 1 -> Phase 2 transition
@@ -311,6 +326,9 @@ public class Boss : MonoBehaviour
 
         Debug.Log("[BOSS] Phase 1 complete! Transitioning to Phase 2...");
 
+        // Trigger UI transformation DURING the flash (name change + bar growth starts)
+        CanvasManager.Instance.UpdateBossPhase(2, phase2Name);
+
         // Flashy power-up effect (pulse colors)
         float elapsed = 0f;
         while (elapsed < transitionDuration)
@@ -327,6 +345,9 @@ public class Boss : MonoBehaviour
         // Enter Phase 2
         currentPhase = 2;
         currentHealth = phase2Health;
+
+        // Update health bar to show full health
+        CanvasManager.Instance.UpdateBossHealth(currentHealth);
 
         // Resume movement
         if (navAgent != null)
@@ -431,6 +452,9 @@ public class Boss : MonoBehaviour
         isDead = true;
 
         Debug.Log($"[BOSS: {gameObject.name}] DIED!");
+
+        // Hide health bar when boss dies
+        CanvasManager.Instance.HideBossHealthBar();
 
         // Trigger death animation
         if (spriteAnim != null)
