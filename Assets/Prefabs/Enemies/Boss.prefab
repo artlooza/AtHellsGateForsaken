@@ -137,17 +137,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss
   currentPhase: 1
-  phase1Health: 50
-  phase2Health: 75
+  phase1Health: 20
+  phase2Health: 34
   attackDuration: 8
   reloadDuration: 7
   weakPointMultiplier: 2
   weakPointAngle: 60
   maxHealth: 50
   contactDamage: 30
-  damageRate: 1
-  phase1AttackCooldown: 0.5
-  phase1ProjectileSpeed: 12
+  damageRate: 2
+  phase1AttackCooldown: 5
+  phase1ProjectileSpeed: 20
   phase1Damage: 10
   phase2AttackCooldown: 0.3
   phase2ProjectileSpeed: 8

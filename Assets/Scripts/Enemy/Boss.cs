@@ -91,10 +91,11 @@ public class Boss : MonoBehaviour
     private Transform playerTransform;
     private NavMeshAgent navAgent;
     private bool isDead = false;
+    private bool healthBarShown = false;
 
     void Start()
     {
-        currentHealth = maxHealth;
+        currentHealth = phase1Health;
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         spriteAnim = GetComponentInChildren<Animator>();
         angleToPlayer = GetComponent<AngleToPlayer>();
@@ -136,6 +137,12 @@ public class Boss : MonoBehaviour
         if (!isAggro && distanceToPlayer <= awarenessRadius)
         {
             isAggro = true;
+        }
+
+        // Show health bar the first time boss becomes aggro (from any source)
+        if (isAggro && !healthBarShown)
+        {
+            healthBarShown = true;
             CanvasManager.Instance.ShowBossHealthBar(this, phase1Name);
         }
 
@@ -150,33 +157,44 @@ public class Boss : MonoBehaviour
         {
             if (isReloading)
             {
-                // During reload, stop moving - player's chance to flank!
-                navAgent.SetDestination(transform.position);
-            }
-            else if (distanceToPlayer > preferredDistance + 2f)
-            {
-                // Move closer
-                navAgent.SetDestination(playerTransform.position);
-            }
-            else if (distanceToPlayer < preferredDistance - 2f)
-            {
-                // Move away
-                Vector3 awayDir = (transform.position - playerTransform.position).normalized;
-                Vector3 targetPos = transform.position + awayDir * 3f;
-                navAgent.SetDestination(targetPos);
+                // During reload, STOP moving completely - player's chance to flank!
+                navAgent.isStopped = true;
+                navAgent.velocity = Vector3.zero; // Force stop any momentum
+                navAgent.ResetPath(); // Clear any queued paths
             }
             else
             {
-                // Stay in place, face player
-                navAgent.SetDestination(transform.position);
+                // Resume movement when not reloading
+                navAgent.isStopped = false;
+
+                if (distanceToPlayer > preferredDistance + 2f)
+                {
+                    // Move closer
+                    navAgent.SetDestination(playerTransform.position);
+                }
+                else if (distanceToPlayer < preferredDistance - 2f)
+                {
+                    // Move away
+                    Vector3 awayDir = (transform.position - playerTransform.position).normalized;
+                    Vector3 targetPos = transform.position + awayDir * 3f;
+                    navAgent.SetDestination(targetPos);
+                }
+                else
+                {
+                    // Stay in place, face player
+                    navAgent.SetDestination(transform.position);
+                }
             }
         }
 
-        // Always look at player
-        Vector3 lookDir = playerTransform.position - transform.position;
-        lookDir.y = 0;
-        if (lookDir != Vector3.zero)
-            transform.rotation = Quaternion.LookRotation(lookDir);
+        // Look at player (but not during reload - need to keep facing away for weak point)
+        if (!isReloading)
+        {
+            Vector3 lookDir = playerTransform.position - transform.position;
+            lookDir.y = 0;
+            if (lookDir != Vector3.zero)
+                transform.rotation = Quaternion.LookRotation(lookDir);
+        }
 
         // Attack based on current phase (only if not reloading)
         if (!isReloading && distanceToPlayer <= attackRange)

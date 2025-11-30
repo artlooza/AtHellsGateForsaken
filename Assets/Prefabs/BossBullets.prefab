@@ -107,6 +107,10 @@ MonoBehaviour:
   damage: 15
   speed: 10
   lifetime: 5
+  owner: {fileID: 0}
+  isHoming: 0
+  target: {fileID: 0}
+  homingStrength: 3
 --- !u!135 &3949622299962012612
 SphereCollider:
   m_ObjectHideFlags: 0
