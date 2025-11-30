@@ -165,7 +165,7 @@ public class Gun : MonoBehaviour
         }
 
         // damage bosses
-        Debug.Log($"[GUN] Bosses in trigger: {enemyManager.bossesInTrigger.Count}");
+        //Debug.Log($"[GUN] Bosses in trigger: {enemyManager.bossesInTrigger.Count}");
         foreach (var boss in enemyManager.bossesInTrigger)
         {
             Debug.Log($"[GUN] Attempting to shoot boss: {boss.name}");
@@ -174,7 +174,7 @@ public class Gun : MonoBehaviour
             Vector3 rayStart = transform.position + transform.forward * 1f; // Start ray in front of gun
             if (Physics.Raycast(rayStart, dir, out hit, range * 1.5f, raycastLayerMask))
             {
-                Debug.Log($"[GUN] Raycast hit: {hit.transform.name} (Boss transform: {boss.transform.name})");
+                //Debug.Log($"[GUN] Raycast hit: {hit.transform.name} (Boss transform: {boss.transform.name})");
                 if(hit.transform == boss.transform)
                 {
                     //range check
@@ -243,7 +243,7 @@ public class Gun : MonoBehaviour
         Boss boss = other.GetComponent<Boss>();
         if (boss)
         {
-            Debug.Log($"[GUN] Boss entered trigger: {boss.name}");
+            //Debug.Log($"[GUN] Boss entered trigger: {boss.name}");
             enemyManager.AddBoss(boss);
         }
     }

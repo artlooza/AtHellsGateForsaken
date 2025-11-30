@@ -46,12 +46,12 @@ public class EnemySpawner : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("EnemySpawner: Could not find player!");
+           //Debug.LogWarning("EnemySpawner: Could not find player!");
         }
 
         if (enemyPrefab == null)
         {
-            Debug.LogError("EnemySpawner: No enemy prefab assigned!");
+            //Debug.LogError("EnemySpawner: No enemy prefab assigned!");
         }
 
         // Auto-start for testing
@@ -67,7 +67,7 @@ public class EnemySpawner : MonoBehaviour
 
         if (other.CompareTag("Player") && !isActive && !isCompleted)
         {
-            Debug.Log("EnemySpawner: Starting to spawn enemies!");
+            //Debug.Log("EnemySpawner: Starting to spawn enemies!");
             StartSpawning();
         }
     }
@@ -144,14 +144,14 @@ public class EnemySpawner : MonoBehaviour
             CanvasManager.Instance.UpdateKeys(keyColor);
         }
 
-        Debug.Log("Room completed! " + keyColor + " key awarded!");
+        //Debug.Log("Room completed! " + keyColor + " key awarded!");
     }
 
     private void SpawnEnemy()
     {
         if (enemyPrefab == null)
         {
-            Debug.LogError("EnemySpawner: Cannot spawn - no enemy prefab assigned!");
+           // Debug.LogError("EnemySpawner: Cannot spawn - no enemy prefab assigned!");
             return;
         }
 

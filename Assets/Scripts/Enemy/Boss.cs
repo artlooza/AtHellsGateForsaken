@@ -170,7 +170,7 @@ public class Boss : MonoBehaviour
 
         currentHealth -= damage;
 
-        Debug.Log($"[BOSS: {gameObject.name}] Health after: {currentHealth}");
+        //Debug.Log($"[BOSS: {gameObject.name}] Health after: {currentHealth}");
 
         // Hit effect
         if (hitEffect != null)

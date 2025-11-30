@@ -28,19 +28,19 @@ public class BossProjectile : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"Projectile collided with: {other.name} (Tag: {other.tag})");
+        //Debug.Log($"Projectile collided with: {other.name} (Tag: {other.tag})");
 
         // Ignore the boss that fired this projectile
         if (owner != null && other.gameObject == owner)
         {
-            Debug.Log("Ignored: Owner");
+            //Debug.Log("Ignored: Owner");
             return;
         }
 
         // Ignore children of owner (like EnemySprite)
         if (owner != null && other.transform.IsChildOf(owner.transform))
         {
-            Debug.Log("Ignored: Child of owner");
+            //Debug.Log("Ignored: Child of owner");
             return;
         }
 
@@ -49,7 +49,7 @@ public class BossProjectile : MonoBehaviour
         PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
         if (playerHealth != null)
         {
-            Debug.Log("Hit player body - dealing damage");
+            //Debug.Log("Hit player body - dealing damage");
             playerHealth.DamagePlayer((int)damage);
             Destroy(gameObject);
             return;
@@ -58,14 +58,14 @@ public class BossProjectile : MonoBehaviour
         // If we hit a Player-tagged object without PlayerHealth (like the Gun), ignore it
         if (other.CompareTag("Player"))
         {
-            Debug.Log($"Ignored player child object: {other.name}");
+            //Debug.Log($"Ignored player child object: {other.name}");
             return;  // Don't destroy - let projectile pass through
         }
 
         // Hit walls/environment (not other enemies)
         if (!other.CompareTag("Enemy") && !other.isTrigger)
         {
-            Debug.Log($"Hit wall/environment: {other.name}");
+            //Debug.Log($"Hit wall/environment: {other.name}");
             Destroy(gameObject);
         }
     }
