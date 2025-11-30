@@ -74,12 +74,6 @@ public class PlayerMove : MonoBehaviour
 
     void GetInput()
     {
-        // Check if sprinting (only works while moving forward)
-        isSprinting = Input.GetKey(sprintKey) && Input.GetKey(KeyCode.W);
-
-        // Determine current speed based on sprint state
-        currentSpeed = isSprinting ? sprintSpeed : walkSpeed;
-
         // if we're holding down wasd, then give us -1, 0, 1 values
         if(Input.GetKey(KeyCode.W) ||
            Input.GetKey(KeyCode.A) ||
@@ -91,6 +85,9 @@ public class PlayerMove : MonoBehaviour
             inputVector = transform.TransformDirection(inputVector);
 
             isWalking = true;
+
+            // Check if sprinting (works in any direction while moving)
+            isSprinting = Input.GetKey(sprintKey);
         }
         else
         {
@@ -105,6 +102,9 @@ public class PlayerMove : MonoBehaviour
             isWalking = false;
             isSprinting = false;
         }
+
+        // Determine current speed based on sprint state
+        currentSpeed = isSprinting ? sprintSpeed : walkSpeed;
         movementVector = (inputVector * currentSpeed) + (Vector3.up * myGravity);
     }
 

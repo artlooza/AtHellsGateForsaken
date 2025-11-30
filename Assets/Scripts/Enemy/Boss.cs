@@ -166,7 +166,11 @@ public class Boss : MonoBehaviour
     {
         if (isDead) return;
 
+        Debug.Log($"[BOSS: {gameObject.name}] Taking {damage} damage! Health before: {currentHealth}");
+
         currentHealth -= damage;
+
+        Debug.Log($"[BOSS: {gameObject.name}] Health after: {currentHealth}");
 
         // Hit effect
         if (hitEffect != null)
@@ -193,6 +197,8 @@ public class Boss : MonoBehaviour
     {
         isDead = true;
 
+        Debug.Log($"[BOSS: {gameObject.name}] DIED!");
+
         // Trigger death animation
         if (spriteAnim != null)
             spriteAnim.SetBool("isDead", true);
@@ -216,22 +222,19 @@ public class Boss : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
-            if (playerHealth != null)
-                playerHealth.DamagePlayer((int)contactDamage);
-        }
+        // Only damage if we hit the actual player body, not child objects like the gun
+        PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+        if (playerHealth != null)
+            playerHealth.DamagePlayer((int)contactDamage);
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player") && Time.time >= nextDamageTime)
+        // Only damage if we hit the actual player body, not child objects like the gun
+        PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+        if (playerHealth != null && Time.time >= nextDamageTime)
         {
-            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
-            if (playerHealth != null)
-                playerHealth.DamagePlayer((int)contactDamage);
-
+            playerHealth.DamagePlayer((int)contactDamage);
             nextDamageTime = Time.time + damageRate;
         }
     }

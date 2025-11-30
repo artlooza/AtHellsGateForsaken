@@ -164,6 +164,46 @@ public class Gun : MonoBehaviour
 
         }
 
+        // damage bosses
+        Debug.Log($"[GUN] Bosses in trigger: {enemyManager.bossesInTrigger.Count}");
+        foreach (var boss in enemyManager.bossesInTrigger)
+        {
+            Debug.Log($"[GUN] Attempting to shoot boss: {boss.name}");
+            var dir = boss.transform.position - transform.position;
+            RaycastHit hit;
+            Vector3 rayStart = transform.position + transform.forward * 1f; // Start ray in front of gun
+            if (Physics.Raycast(rayStart, dir, out hit, range * 1.5f, raycastLayerMask))
+            {
+                Debug.Log($"[GUN] Raycast hit: {hit.transform.name} (Boss transform: {boss.transform.name})");
+                if(hit.transform == boss.transform)
+                {
+                    //range check
+                    float dist = Vector3.Distance(boss.transform.position, transform.position);
+
+                    if (dist > range * .5f)
+                    {
+                        //damage boss small. Damages boss if they're far with smaller damage.
+                        boss.TakeDamage(smallDamage);
+                    }
+                    else {
+                        //damage boss big. Damages boss if they're close with full damage.
+                        boss.TakeDamage(bigDamage);
+                    }
+
+                    // Show hit marker on reticle
+                    CanvasManager.Instance.ShowHitMarker();
+                }
+                else
+                {
+                    Debug.Log($"[GUN] Raycast hit wrong object! Hit {hit.transform.name} instead of {boss.transform.name}");
+                }
+            }
+            else
+            {
+                Debug.Log($"[GUN] Raycast missed! Check raycastLayerMask or Boss layer");
+            }
+        }
+
         //reset timer
         nextTimeToFire = Time.time + fireRate;
 
@@ -192,26 +232,36 @@ public class Gun : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // add enemy enemy to shoot
+        // add enemy to shoot
         Enemy enemy = other.GetComponent<Enemy>();
-
         if(enemy)
         {
             enemyManager.AddEnemy(enemy);
-
         }
 
+        // Add boss to shoot list
+        Boss boss = other.GetComponent<Boss>();
+        if (boss)
+        {
+            Debug.Log($"[GUN] Boss entered trigger: {boss.name}");
+            enemyManager.AddBoss(boss);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        // remove enemy enemy to shoot
+        // remove enemy from shoot list
         Enemy enemy = other.GetComponent<Enemy>();
-
         if (enemy)
         {
             enemyManager.RemoveEnemy(enemy);
+        }
 
+        // Remove boss from shoot list
+        Boss boss = other.GetComponent<Boss>();
+        if (boss)
+        {
+            enemyManager.RemoveBoss(boss);
         }
     }
 

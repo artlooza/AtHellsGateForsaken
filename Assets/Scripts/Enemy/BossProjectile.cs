@@ -44,21 +44,22 @@ public class BossProjectile : MonoBehaviour
             return;
         }
 
-        // Check for player - either by tag OR by having PlayerHealth component
-        // This handles Gun collider (child of player) not being tagged
+        // Only damage if we hit the actual player body (object with PlayerHealth directly on it)
+        // Ignore child objects like the gun
         PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
-        if (playerHealth == null)
-            playerHealth = other.GetComponentInParent<PlayerHealth>();
-
-        if (other.CompareTag("Player") || playerHealth != null)
+        if (playerHealth != null)
         {
-            Debug.Log("Hit player - dealing damage");
-            if (playerHealth != null)
-            {
-                playerHealth.DamagePlayer((int)damage);
-            }
+            Debug.Log("Hit player body - dealing damage");
+            playerHealth.DamagePlayer((int)damage);
             Destroy(gameObject);
             return;
+        }
+
+        // If we hit a Player-tagged object without PlayerHealth (like the Gun), ignore it
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log($"Ignored player child object: {other.name}");
+            return;  // Don't destroy - let projectile pass through
         }
 
         // Hit walls/environment (not other enemies)

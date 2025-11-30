@@ -8,6 +8,7 @@ public class EnemyManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public List<Enemy> enemiesInTrigger = new List<Enemy>();
+    public List<Boss> bossesInTrigger = new List<Boss>();
 
     public void AddEnemy(Enemy enemy)
     {
@@ -17,5 +18,15 @@ public class EnemyManager : MonoBehaviour
     public void RemoveEnemy(Enemy enemy)
     {
         enemiesInTrigger.Remove(enemy);
+    }
+
+    public void AddBoss(Boss boss)
+    {
+        bossesInTrigger.Add(boss);
+    }
+
+    public void RemoveBoss(Boss boss)
+    {
+        bossesInTrigger.Remove(boss);
     }
 }

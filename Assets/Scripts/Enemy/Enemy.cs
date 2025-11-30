@@ -38,6 +38,7 @@ public class Enemy : MonoBehaviour
         spriteAnim.SetFloat("spriteRot", angleToPlayer.lastIndex);
         if (enemyHealth <= 0)
         {
+            Debug.Log($"[{gameObject.name}] DIED!");
             enemyManager.RemoveEnemy(this);
             Destroy(gameObject);
         }
@@ -48,8 +49,12 @@ public class Enemy : MonoBehaviour
     
     public void TakeDamage(float damage)
     {
+        Debug.Log($"[{gameObject.name}] Taking {damage} damage! Health before: {enemyHealth}");
+
         Instantiate(gunHitEffect, transform.position, Quaternion.identity);
         enemyHealth -= damage;
+
+        Debug.Log($"[{gameObject.name}] Health after: {enemyHealth}");
 
         // Flash red when taking damage
         if(spriteRenderer != null)
@@ -73,33 +78,26 @@ public class Enemy : MonoBehaviour
         spriteRenderer.color = originalColor;
     }
 
-    // This'll be activated Enemy touches 
+    // This'll be activated Enemy touches
     private void OnTriggerEnter(Collider other)
     {
         //Debug.Log("Enemy Triggered by " + other.name);
-        if (other.CompareTag("Player"))
+        // Only damage if we hit the actual player body, not child objects like the gun
+        PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+        if (playerHealth != null)
         {
-            // Get the PlayerHealth component and call your existing DamagePlayer function
-            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
-            if (playerHealth != null)
-            {
-                playerHealth.DamagePlayer((int)contactDamage); // Call your existing function
-            }
+            playerHealth.DamagePlayer((int)contactDamage); // Call your existing function
         }
     }
 
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player") && Time.time >= nextDamageTime)
+        // Only damage if we hit the actual player body, not child objects like the gun
+        PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+        if (playerHealth != null && Time.time >= nextDamageTime)
         {
-            // Continuous damage while touching
-            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
-            if (playerHealth != null)
-            {
-                playerHealth.DamagePlayer((int)contactDamage); // Call your existing function
-            }
-
+            playerHealth.DamagePlayer((int)contactDamage); // Call your existing function
             nextDamageTime = Time.time + damageRate;
         }
     }

@@ -9,10 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8847593959280389869}
-  - component: {fileID: 6937663573240414291}
-  - component: {fileID: 8811450005247036596}
   - component: {fileID: 612820716525541467}
   - component: {fileID: 7118610088512127834}
+  - component: {fileID: 6173964798799678760}
+  - component: {fileID: 8811450005247036596}
+  - component: {fileID: 6937663573240414291}
   m_Layer: 9
   m_Name: Boss
   m_TagString: Untagged
@@ -29,60 +30,13 @@ Transform:
   m_GameObject: {fileID: 2409231438819453913}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -33, y: 7.1, z: -4.5}
+  m_LocalPosition: {x: -50.96, y: 1, z: 1.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 187904587150831905}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &6937663573240414291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2409231438819453913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a774b92635885f41adc669e9dd28193, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Boss
-  maxHealth: 50
-  contactDamage: 30
-  damageRate: 1
-  projectilePrefab: {fileID: 7433395122334750811, guid: 8a2d85cdbc30f744c82e3a9f40414c8b, type: 3}
-  firePoint: {fileID: 0}
-  attackRange: 15
-  attackCooldown: 2
-  projectileDamage: 15
-  projectileSpeed: 10
-  moveSpeed: 3
-  preferredDistance: 8
-  awarenessRadius: 15
-  isAggro: 0
-  hitEffect: {fileID: 633279664527274446, guid: 092d703899c304d4aaa4602ea99982d4, type: 3}
-  flashDuration: 0.1
-  flashColor: {r: 1, g: 0, b: 0, a: 1}
-  deathAnimationLength: 1
-  attackSound: {fileID: 8300000, guid: 4ed34d795805cf145becb46c24e8140a, type: 3}
-  hurtSound: {fileID: 8300000, guid: e543707d4f0adc44db3dd68e7daa4b5b, type: 3}
-  deathSound: {fileID: 8300000, guid: 23c9ef6514cddd34990257ee4b18b6d1, type: 3}
---- !u!114 &8811450005247036596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2409231438819453913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9daddc563b76bff4c8aed1de9abe89e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AngleToPlayer
-  spriteRenderer: {fileID: 5974087243340778961}
-  sprites: []
-  lastIndex: 0
 --- !u!195 &612820716525541467
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -120,7 +74,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -128,6 +82,80 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &6173964798799678760
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2409231438819453913}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &8811450005247036596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2409231438819453913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9daddc563b76bff4c8aed1de9abe89e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AngleToPlayer
+  spriteRenderer: {fileID: 5974087243340778961}
+  sprites: []
+  lastIndex: 0
+--- !u!114 &6937663573240414291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2409231438819453913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a774b92635885f41adc669e9dd28193, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Boss
+  maxHealth: 50
+  contactDamage: 30
+  damageRate: 1
+  projectilePrefab: {fileID: 7433395122334750811, guid: 8a2d85cdbc30f744c82e3a9f40414c8b, type: 3}
+  firePoint: {fileID: 0}
+  attackRange: 15
+  attackCooldown: 2
+  projectileDamage: 15
+  projectileSpeed: 10
+  moveSpeed: 3
+  preferredDistance: 8
+  awarenessRadius: 15
+  isAggro: 0
+  hitEffect: {fileID: 633279664527274446, guid: 092d703899c304d4aaa4602ea99982d4, type: 3}
+  flashDuration: 0.1
+  flashColor: {r: 1, g: 0, b: 0, a: 1}
+  deathAnimationLength: 1
+  attackSound: {fileID: 8300000, guid: e7d26fd4a0c73274e979088c03d3b043, type: 3}
+  hurtSound: {fileID: 8300000, guid: f0c0335d139b93a4c825db068a592c7b, type: 3}
+  deathSound: {fileID: 8300000, guid: 23c9ef6514cddd34990257ee4b18b6d1, type: 3}
 --- !u!1 &5727662370554252322
 GameObject:
   m_ObjectHideFlags: 0
