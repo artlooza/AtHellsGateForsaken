@@ -183,11 +183,11 @@ public class Gun : MonoBehaviour
                     if (dist > range * .5f)
                     {
                         //damage boss small. Damages boss if they're far with smaller damage.
-                        boss.TakeDamage(smallDamage);
+                        boss.TakeDamage(smallDamage, transform.position);
                     }
                     else {
                         //damage boss big. Damages boss if they're close with full damage.
-                        boss.TakeDamage(bigDamage);
+                        boss.TakeDamage(bigDamage, transform.position);
                     }
 
                     // Show hit marker on reticle

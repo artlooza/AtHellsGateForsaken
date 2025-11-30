@@ -7,6 +7,10 @@ public class BossProjectile : MonoBehaviour
     public float lifetime = 5f;
     public GameObject owner;  // Boss that fired this
 
+    public bool isHoming = false;
+    public Transform target;
+    public float homingStrength = 3f;
+
     private float spawnTime;
 
     void Start()
@@ -16,6 +20,15 @@ public class BossProjectile : MonoBehaviour
 
     void Update()
     {
+        // Homing behavior
+        if (isHoming && target != null)
+        {
+            // Gradually turn toward target
+            Vector3 directionToTarget = (target.position - transform.position).normalized;
+            Vector3 newDirection = Vector3.Lerp(transform.forward, directionToTarget, homingStrength * Time.deltaTime);
+            transform.rotation = Quaternion.LookRotation(newDirection);
+        }
+
         // Move forward
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
