@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 328e133e7cc5117409ed51bbbcf7ed64
+timeCreated: 1455728795
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 56402
+  packageName: Stylized Cemetery Pack
+  packageVersion: 1.0
+  assetPath: Assets/CemeteryPack/Prefabs/FenceFoundation/MetObj_FenceFoundation4.prefab
+  uploadId: 106261

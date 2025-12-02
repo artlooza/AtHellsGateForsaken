@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ae702e9a14e7b9d4796dc8d5b763cdfe
+timeCreated: 1455730851
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 56402
+  packageName: Stylized Cemetery Pack
+  packageVersion: 1.0
+  assetPath: Assets/CemeteryPack/Prefabs/Gate/MetObj_Gates2.prefab
+  uploadId: 106261

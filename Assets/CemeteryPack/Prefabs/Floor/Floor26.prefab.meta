@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 81b4d9f6dd6371447b80b288f477e059
+timeCreated: 1455728058
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 56402
+  packageName: Stylized Cemetery Pack
+  packageVersion: 1.0
+  assetPath: Assets/CemeteryPack/Prefabs/Floor/Floor26.prefab
+  uploadId: 106261

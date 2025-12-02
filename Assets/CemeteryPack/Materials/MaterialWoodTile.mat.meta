@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a33591cad47088542b6a845a572deee7
+timeCreated: 1455731908
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 56402
+  packageName: Stylized Cemetery Pack
+  packageVersion: 1.0
+  assetPath: Assets/CemeteryPack/Materials/MaterialWoodTile.mat
+  uploadId: 106261

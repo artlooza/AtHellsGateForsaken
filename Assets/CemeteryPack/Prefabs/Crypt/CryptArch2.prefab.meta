@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: bee415b422b6804408592581488b1827
+timeCreated: 1455730416
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 56402
+  packageName: Stylized Cemetery Pack
+  packageVersion: 1.0
+  assetPath: Assets/CemeteryPack/Prefabs/Crypt/CryptArch2.prefab
+  uploadId: 106261

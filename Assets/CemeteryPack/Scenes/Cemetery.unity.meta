@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 640cf7fa4d547da438336bd757f9976c
+timeCreated: 1455583027
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 56402
+  packageName: Stylized Cemetery Pack
+  packageVersion: 1.0
+  assetPath: Assets/CemeteryPack/Scenes/Cemetery.unity
+  uploadId: 106261
