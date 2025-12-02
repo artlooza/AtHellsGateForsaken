@@ -7,6 +7,7 @@ public class Boss : MonoBehaviour
 {
     [Header("Phase System")]
     public int currentPhase = 1;
+    public bool enablePhase2 = true;       // Checked = Full boss with Phase 2 | Unchecked = Phase 1 only (dies after Phase 1)
     public float phase1Health = 50f;
     public float phase2Health = 75f;
     private bool isTransitioning = false;
@@ -308,11 +309,21 @@ public class Boss : MonoBehaviour
 
         Debug.Log($"[BOSS: {gameObject.name}] Health after: {currentHealth}");
 
-        // Phase 1 -> Phase 2 transition
+        // Phase 1 -> Phase 2 transition (or death if Phase 2 is disabled)
         if (currentPhase == 1 && currentHealth <= 0)
         {
-            StartCoroutine(PhaseTransition());
-            return;  // Don't die, transition instead
+            if (!enablePhase2)
+            {
+                // Phase 2 disabled - this enemy dies at Phase 1
+                Die();
+                return;
+            }
+            else
+            {
+                // Phase 2 enabled - transform into Phase 2
+                StartCoroutine(PhaseTransition());
+                return;
+            }
         }
 
         // Phase 2 death

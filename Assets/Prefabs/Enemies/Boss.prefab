@@ -137,8 +137,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss
   currentPhase: 1
+  enablePhase2: 1
   phase1Health: 20
   phase2Health: 34
+  debugSkipPhase2: 0
   phase1AttackDuration: 8
   phase1ReloadDuration: 3
   phase2AttackDuration: 10
