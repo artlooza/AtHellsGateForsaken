@@ -139,27 +139,34 @@ MonoBehaviour:
   currentPhase: 1
   phase1Health: 20
   phase2Health: 34
-  attackDuration: 8
-  reloadDuration: 7
+  phase1AttackDuration: 8
+  phase1ReloadDuration: 3
+  phase2AttackDuration: 10
+  phase2ReloadDuration: 4
   weakPointMultiplier: 2
   weakPointAngle: 60
   maxHealth: 50
   contactDamage: 30
   damageRate: 2
-  phase1AttackCooldown: 0.5
-  phase1ProjectileSpeed: 0.5
+  phase1AttackCooldown: 0.25
+  phase1ProjectileSpeed: 25
   phase1Damage: 2
   phase2AttackCooldown: 0.3
-  phase2ProjectileSpeed: 0.5
+  phase2ProjectileSpeed: 25
   phase2Damage: 20
   spiralProjectileCount: 12
   ringProjectileCount: 16
   patternDuration: 3
   projectilePrefab: {fileID: 7433395122334750811, guid: 8a2d85cdbc30f744c82e3a9f40414c8b, type: 3}
   firePoint: {fileID: 0}
-  attackRange: 15
-  moveSpeed: 3
-  preferredDistance: 8
+  attackRange: 25
+  firePointHeight: 1
+  firePointForward: 3
+  moveSpeed: 8
+  preferredDistance: 12
+  useRandomMovement: 1
+  movementChangeInterval: 2
+  strafeRadius: 5
   awarenessRadius: 15
   isAggro: 0
   hitEffect: {fileID: 633279664527274446, guid: 092d703899c304d4aaa4602ea99982d4, type: 3}
