@@ -8,6 +8,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6766574291703609699, guid: 1455f70d616c66f478bf814f642874bc, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6766574291703609699, guid: 1455f70d616c66f478bf814f642874bc, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: d26e662f9196d7248ad832bc69192aa8, type: 3}
+    - target: {fileID: -6766574291703609699, guid: 1455f70d616c66f478bf814f642874bc, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5076470528563519048, guid: 1455f70d616c66f478bf814f642874bc, type: 3}
       propertyPath: m_Name
       value: BlueDoorWithSound
@@ -15,7 +27,7 @@ PrefabInstance:
     - target: {fileID: 8028427604199196729, guid: 1455f70d616c66f478bf814f642874bc, type: 3}
       propertyPath: doorAnim
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8961131629288012741}
     - target: {fileID: 8288697566572384856, guid: 1455f70d616c66f478bf814f642874bc, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5988675
@@ -73,6 +85,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5076470528563519048, guid: 1455f70d616c66f478bf814f642874bc, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 8961131629288012741}
     - targetCorrespondingSourceObject: {fileID: 1630115541220041051, guid: 1455f70d616c66f478bf814f642874bc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2167576226498162633}
@@ -80,6 +95,33 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3737538119806168322}
   m_SourcePrefab: {fileID: 100100000, guid: 1455f70d616c66f478bf814f642874bc, type: 3}
+--- !u!1 &2710591874723567466 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5076470528563519048, guid: 1455f70d616c66f478bf814f642874bc, type: 3}
+  m_PrefabInstance: {fileID: 7200917148010662178}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8961131629288012741
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2710591874723567466}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8724b6409ce58d7448595c02e7424fd2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8462719502318200953 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1630115541220041051, guid: 1455f70d616c66f478bf814f642874bc, type: 3}

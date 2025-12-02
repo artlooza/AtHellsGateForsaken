@@ -2036,6 +2036,9 @@ MonoBehaviour:
   reqRed: 1
   reqGreen: 0
   reqBlue: 0
+  interactionPrompt: Press [E] to Open
+  lockedPrompt: Requires {0} Key
+  stayOpen: 0
   areaToSpawn: {fileID: 0}
 --- !u!82 &-5761384034239464476
 AudioSource:
@@ -2049,7 +2052,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: a868a9415b20e094588d88a16eb8145a, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
