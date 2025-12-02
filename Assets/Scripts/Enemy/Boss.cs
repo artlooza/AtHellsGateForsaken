@@ -13,8 +13,10 @@ public class Boss : MonoBehaviour
     private bool isInvulnerable = false;
 
     [Header("Attack Intervals")]
-    public float attackDuration = 8f;
-    public float reloadDuration = 3f;
+    public float phase1AttackDuration = 8f;   // How long Phase 1 attacks before reloading
+    public float phase1ReloadDuration = 3f;   // How long Phase 1 reloads
+    public float phase2AttackDuration = 10f;  // How long Phase 2 attacks before reloading
+    public float phase2ReloadDuration = 4f;   // How long Phase 2 reloads
     private float attackTimer = 0f;
     private bool isReloading = false;
 
@@ -32,32 +34,36 @@ public class Boss : MonoBehaviour
     private float nextDamageTime = 0f;
 
     [Header("Phase 1 - Fast Shots")]
-    public float phase1AttackCooldown = 0.5f;
-    public float phase1ProjectileSpeed = 12f;
-    public float phase1Damage = 10f;
+    public float phase1AttackCooldown = 0.5f;  // Time between shots (lower = faster shooting)
+    public float phase1ProjectileSpeed = 12f;  // How fast bullets move
+    public float phase1Damage = 10f;           // Damage per bullet
 
     [Header("Phase 2 - Bullet Hell")]
-    public float phase2AttackCooldown = 0.3f;
-    public float phase2ProjectileSpeed = 8f;
-    public float phase2Damage = 20f;
-    public int spiralProjectileCount = 12;
-    public int ringProjectileCount = 16;
-    public float patternDuration = 3f;
+    public float phase2AttackCooldown = 0.3f;  // Time between patterns (lower = more bullet spam!)
+    public float phase2ProjectileSpeed = 8f;   // How fast bullets move
+    public float phase2Damage = 20f;           // Damage per bullet
+    public int spiralProjectileCount = 12;     // Number of bullets in spiral pattern (more = harder to dodge)
+    public int ringProjectileCount = 16;       // Number of bullets in ring burst (lower = less spam)
+    public float patternDuration = 3f;         // How long each pattern lasts before switching
     private int currentPattern = 0;
     private float patternTimer = 0f;
 
-    [Header("Ranged Attack")]
+    [Header("Projectile Settings")]
     public GameObject projectilePrefab;
     public Transform firePoint;
     public float attackRange = 15f;
-    public float attackCooldown = 2f;
-    public float projectileDamage = 15f;
-    public float projectileSpeed = 10f;
+    public float firePointHeight = 1f;      // Height of fire point (lower = bullets spawn lower)
+    public float firePointForward = 3f;     // Forward distance of fire point
     private float nextAttackTime = 0f;
 
     [Header("Movement")]
     public float moveSpeed = 3f;
     public float preferredDistance = 8f; // Boss tries to keep this distance from player
+    public bool useRandomMovement = true; // Enable random strafing/circling
+    public float movementChangeInterval = 2f; // How often to pick new random position (seconds)
+    public float strafeRadius = 5f; // How far to strafe from preferred position
+    private float movementTimer = 0f;
+    private Vector3 randomOffset = Vector3.zero;
 
     [Header("Awareness")]
     public float awarenessRadius = 15f;
@@ -118,8 +124,13 @@ public class Boss : MonoBehaviour
         {
             GameObject fp = new GameObject("FirePoint");
             fp.transform.SetParent(transform);
-            fp.transform.localPosition = Vector3.forward * 3f + Vector3.up * 1f;
+            fp.transform.localPosition = Vector3.forward * firePointForward + Vector3.up * firePointHeight;
             firePoint = fp.transform;
+        }
+        else
+        {
+            // Update existing fire point position based on Inspector values
+            firePoint.localPosition = Vector3.forward * firePointForward + Vector3.up * firePointHeight;
         }
     }
 
@@ -167,22 +178,44 @@ public class Boss : MonoBehaviour
                 // Resume movement when not reloading
                 navAgent.isStopped = false;
 
-                if (distanceToPlayer > preferredDistance + 2f)
+                if (useRandomMovement)
                 {
-                    // Move closer
-                    navAgent.SetDestination(playerTransform.position);
-                }
-                else if (distanceToPlayer < preferredDistance - 2f)
-                {
-                    // Move away
-                    Vector3 awayDir = (transform.position - playerTransform.position).normalized;
-                    Vector3 targetPos = transform.position + awayDir * 3f;
+                    // Random strafing/circling movement
+                    movementTimer += Time.deltaTime;
+                    if (movementTimer >= movementChangeInterval)
+                    {
+                        movementTimer = 0f;
+                        // Pick random position around player at preferred distance
+                        float randomAngle = UnityEngine.Random.Range(0f, 360f);
+                        Vector3 direction = Quaternion.Euler(0, randomAngle, 0) * Vector3.forward;
+                        randomOffset = direction * strafeRadius;
+                    }
+
+                    // Move to preferred distance + random offset
+                    Vector3 directionToPlayer = (transform.position - playerTransform.position).normalized;
+                    Vector3 targetPos = playerTransform.position + (directionToPlayer * preferredDistance) + randomOffset;
                     navAgent.SetDestination(targetPos);
                 }
                 else
                 {
-                    // Stay in place, face player
-                    navAgent.SetDestination(transform.position);
+                    // Original static movement (maintain distance)
+                    if (distanceToPlayer > preferredDistance + 2f)
+                    {
+                        // Move closer
+                        navAgent.SetDestination(playerTransform.position);
+                    }
+                    else if (distanceToPlayer < preferredDistance - 2f)
+                    {
+                        // Move away
+                        Vector3 awayDir = (transform.position - playerTransform.position).normalized;
+                        Vector3 targetPos = transform.position + awayDir * 3f;
+                        navAgent.SetDestination(targetPos);
+                    }
+                    else
+                    {
+                        // Stay in place, face player
+                        navAgent.SetDestination(transform.position);
+                    }
                 }
             }
         }
@@ -220,48 +253,29 @@ public class Boss : MonoBehaviour
     {
         attackTimer += Time.deltaTime;
 
+        // Use phase-specific durations
+        float currentAttackDuration = (currentPhase == 1) ? phase1AttackDuration : phase2AttackDuration;
+        float currentReloadDuration = (currentPhase == 1) ? phase1ReloadDuration : phase2ReloadDuration;
+
         if (!isReloading)
         {
             // Currently attacking - check if time to reload
-            if (attackTimer >= attackDuration)
+            if (attackTimer >= currentAttackDuration)
             {
                 isReloading = true;
                 attackTimer = 0f;
-                Debug.Log("[BOSS] Reloading... (Player's chance to attack!)");
+                Debug.Log($"[BOSS] Phase {currentPhase} - Reloading... (Player's chance to attack!)");
             }
         }
         else
         {
             // Currently reloading - check if ready to attack again
-            if (attackTimer >= reloadDuration)
+            if (attackTimer >= currentReloadDuration)
             {
                 isReloading = false;
                 attackTimer = 0f;
-                Debug.Log("[BOSS] Finished reloading - resuming attack!");
+                Debug.Log($"[BOSS] Phase {currentPhase} - Finished reloading - resuming attack!");
             }
-        }
-    }
-
-    void Attack()
-    {
-        if (projectilePrefab == null) return;
-
-        nextAttackTime = Time.time + attackCooldown;
-
-        // Play attack sound
-        if (attackSound != null)
-            audioSource.PlayOneShot(attackSound);
-
-        // Spawn projectile
-        Vector3 direction = (playerTransform.position - firePoint.position).normalized;
-        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.LookRotation(direction));
-
-        BossProjectile bp = projectile.GetComponent<BossProjectile>();
-        if (bp != null)
-        {
-            bp.damage = projectileDamage;
-            bp.speed = projectileSpeed;
-            bp.owner = gameObject;
         }
     }
 
@@ -379,12 +393,16 @@ public class Boss : MonoBehaviour
 
     void Phase1Attack()
     {
-        nextAttackTime = Time.time + phase1AttackCooldown;
-        Vector3 direction = (playerTransform.position - firePoint.position).normalized;
-        SpawnProjectile(direction, phase1ProjectileSpeed, phase1Damage, false);
+        // Only fire if cooldown has elapsed
+        if (Time.time >= nextAttackTime)
+        {
+            nextAttackTime = Time.time + phase1AttackCooldown;
+            Vector3 direction = (playerTransform.position - firePoint.position).normalized;
+            SpawnProjectile(direction, phase1ProjectileSpeed, phase1Damage, false);
 
-        if (attackSound != null)
-            audioSource.PlayOneShot(attackSound);
+            if (attackSound != null)
+                audioSource.PlayOneShot(attackSound);
+        }
     }
 
     void Phase2Attack()
@@ -421,9 +439,9 @@ public class Boss : MonoBehaviour
         // Fire projectiles in a rotating spiral pattern
         float currentAngle = Time.time * 100f;  // Rotate over time
 
-        for (int i = 0; i < 2; i++)  // 2 spiral arms
+        for (int i = 0; i < spiralProjectileCount; i++)  // Use configurable count
         {
-            float angle = currentAngle + (i * 180f);
+            float angle = currentAngle + (i * (360f / spiralProjectileCount));
             Vector3 direction = Quaternion.Euler(0, angle, 0) * Vector3.forward;
             SpawnProjectile(direction, phase2ProjectileSpeed, phase2Damage, false);
         }

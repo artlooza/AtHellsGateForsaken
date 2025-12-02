@@ -146,11 +146,11 @@ MonoBehaviour:
   maxHealth: 50
   contactDamage: 30
   damageRate: 2
-  phase1AttackCooldown: 5
-  phase1ProjectileSpeed: 20
-  phase1Damage: 10
+  phase1AttackCooldown: 0.5
+  phase1ProjectileSpeed: 0.5
+  phase1Damage: 2
   phase2AttackCooldown: 0.3
-  phase2ProjectileSpeed: 8
+  phase2ProjectileSpeed: 0.5
   phase2Damage: 20
   spiralProjectileCount: 12
   ringProjectileCount: 16
@@ -158,9 +158,6 @@ MonoBehaviour:
   projectilePrefab: {fileID: 7433395122334750811, guid: 8a2d85cdbc30f744c82e3a9f40414c8b, type: 3}
   firePoint: {fileID: 0}
   attackRange: 15
-  attackCooldown: 2
-  projectileDamage: 15
-  projectileSpeed: 10
   moveSpeed: 3
   preferredDistance: 8
   awarenessRadius: 15
