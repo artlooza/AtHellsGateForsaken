@@ -2446,7 +2446,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5414560577661367266}
-  - component: {fileID: 7417852297728986496}
   - component: {fileID: 6316017783518047517}
   - component: {fileID: 8093208428607458406}
   m_Layer: 0
@@ -2472,28 +2471,6 @@ Transform:
   - {fileID: 5352540429179334891}
   m_Father: {fileID: 6087998488340491649}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &7417852297728986496
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7252203199745165879}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8724b6409ce58d7448595c02e7424fd2, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!82 &6316017783518047517
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2671,9 +2648,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a94d2afc4faa6444d8a2b7d4dd97dc5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  doorAnim: {fileID: 7417852297728986496}
+  doorAnim: {fileID: 0}
   requiresKey: 1
   reqRed: 0
   reqGreen: 1
   reqBlue: 0
+  interactionPrompt: Press [E] to Open
+  lockedPrompt: Requires {0} Key
+  stayOpen: 0
   areaToSpawn: {fileID: 0}

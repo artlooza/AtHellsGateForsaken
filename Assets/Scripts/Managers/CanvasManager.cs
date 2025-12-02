@@ -43,6 +43,10 @@ public class CanvasManager : MonoBehaviour
     private float targetBarWidth;
     private Coroutine resizeCoroutine;
 
+    [Header("Interaction Prompt")]
+    public GameObject interactionPromptPanel;
+    public TextMeshProUGUI interactionPromptText;
+
 
     private static CanvasManager _instance;
     public static CanvasManager Instance { get { return _instance; } }
@@ -198,5 +202,22 @@ public class CanvasManager : MonoBehaviour
         }
 
         healthBarRect.sizeDelta = new Vector2(targetBarWidth, healthBarRect.sizeDelta.y);
+    }
+
+    public void ShowInteractionPrompt(string message)
+    {
+        if (interactionPromptPanel != null && interactionPromptText != null)
+        {
+            interactionPromptText.text = message;
+            interactionPromptPanel.SetActive(true);
+        }
+    }
+
+    public void HideInteractionPrompt()
+    {
+        if (interactionPromptPanel != null)
+        {
+            interactionPromptPanel.SetActive(false);
+        }
     }
 }
