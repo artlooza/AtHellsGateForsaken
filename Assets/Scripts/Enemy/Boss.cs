@@ -508,7 +508,7 @@ public class Boss : MonoBehaviour
             spriteAnim.SetBool("isDead", true);
 
         // Stop movement
-        if (navAgent != null)
+        if (navAgent != null && navAgent.isOnNavMesh)
             navAgent.isStopped = true;
 
         // Play death sound
@@ -519,6 +519,10 @@ public class Boss : MonoBehaviour
         Enemy enemyComponent = GetComponent<Enemy>();
         if (enemyComponent != null && enemyManager != null)
             enemyManager.RemoveEnemy(enemyComponent);
+
+        // Remove boss from boss list
+        if (enemyManager != null)
+            enemyManager.RemoveBoss(this);
 
         // Destroy after death animation finishes
         Destroy(gameObject, deathAnimationLength);

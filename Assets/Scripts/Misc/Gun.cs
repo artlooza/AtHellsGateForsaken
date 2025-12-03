@@ -127,9 +127,12 @@ public class Gun : MonoBehaviour
 
 
 
-        // damage enemies
-        foreach (var enemy in enemyManager.enemiesInTrigger)
+        // damage enemies (iterate over copy to avoid modification errors)
+        foreach (var enemy in enemyManager.enemiesInTrigger.ToArray())
         {
+            // Skip if enemy has been destroyed
+            if (enemy == null) continue;
+
             var dir = enemy.transform.position - transform.position;
             RaycastHit hit;
             Vector3 rayStart = transform.position + transform.forward * 1f; // Start ray in front of gun
@@ -164,10 +167,13 @@ public class Gun : MonoBehaviour
 
         }
 
-        // damage bosses
+        // damage bosses (iterate over copy to avoid modification errors)
         //Debug.Log($"[GUN] Bosses in trigger: {enemyManager.bossesInTrigger.Count}");
-        foreach (var boss in enemyManager.bossesInTrigger)
+        foreach (var boss in enemyManager.bossesInTrigger.ToArray())
         {
+            // Skip if boss has been destroyed
+            if (boss == null) continue;
+
             Debug.Log($"[GUN] Attempting to shoot boss: {boss.name}");
             var dir = boss.transform.position - transform.position;
             RaycastHit hit;

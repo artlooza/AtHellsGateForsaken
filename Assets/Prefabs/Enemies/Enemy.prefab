@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8525939dfc28d84ab67ecd590675023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  contactDamage: 20
+  contactDamage: 5
   damageRate: 1
   gunHitEffect: {fileID: 633279664527274446, guid: 092d703899c304d4aaa4602ea99982d4, type: 3}
   flashDuration: 0.3
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c52a27ab5b06c3c42acfdf466b7725be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  awarenessRadius: 5
+  awarenessRadius: 10
   isAggro: 0
 --- !u!114 &3264864366771130814
 MonoBehaviour:
@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646ad61eded6a1547abd2db4d407e87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  moveSpeed: 2
+  moveSpeed: 15
 --- !u!114 &6748741178373698502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,4 +303,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9daddc563b76bff4c8aed1de9abe89e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AlignThePlayer
+  spriteRenderer: {fileID: 0}
+  sprites: []
   lastIndex: 0
