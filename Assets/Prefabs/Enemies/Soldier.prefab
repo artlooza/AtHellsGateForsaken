@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8811450005247036596}
   - component: {fileID: 6937663573240414291}
   m_Layer: 9
-  m_Name: Boss
+  m_Name: Soldier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,11 +137,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss
   currentPhase: 1
-  enablePhase2: 1
-  phase1Health: 20
+  enablePhase2: 0
+  phase1Health: 10
   phase2Health: 34
-  phase1AttackDuration: 8
-  phase1ReloadDuration: 3
+  phase1AttackDuration: 5
+  phase1ReloadDuration: 2.5
   phase2AttackDuration: 10
   phase2ReloadDuration: 4
   weakPointMultiplier: 2
@@ -150,7 +150,7 @@ MonoBehaviour:
   contactDamage: 30
   damageRate: 2
   phase1AttackCooldown: 0.25
-  phase1ProjectileSpeed: 25
+  phase1ProjectileSpeed: 15
   phase1Damage: 2
   phase2AttackCooldown: 0.3
   phase2ProjectileSpeed: 25

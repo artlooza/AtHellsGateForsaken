@@ -111,10 +111,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8827242799476974428}
-  - component: {fileID: 6991095024707222715}
   - component: {fileID: 938926554997036933}
+  - component: {fileID: 6991095024707222715}
   - component: {fileID: 8058631559513125521}
-  - component: {fileID: 5213659111890714215}
   m_Layer: 0
   m_Name: BigMedKit
   m_TagString: Untagged
@@ -138,22 +137,6 @@ Transform:
   - {fileID: 3124907893444079206}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6991095024707222715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3867608468700987832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e95196369b346fa45ac8c23b1c63f7b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  isHealth: 0
-  isArmor: 0
-  isAmmo: 0
-  amount: 0
 --- !u!65 &938926554997036933
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -175,6 +158,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6991095024707222715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3867608468700987832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e95196369b346fa45ac8c23b1c63f7b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  isHealth: 1
+  isArmor: 0
+  isAmmo: 0
+  amount: 25
 --- !u!114 &8058631559513125521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,19 +186,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6fb8f22ece4b8428695194402d32d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
---- !u!114 &5213659111890714215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3867608468700987832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e95196369b346fa45ac8c23b1c63f7b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ItemPickup
-  isHealth: 0
-  isArmor: 0
-  isAmmo: 0
-  amount: 50

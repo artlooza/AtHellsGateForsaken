@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2755259449739144986}
   - component: {fileID: 2961440110256914820}
   - component: {fileID: 4621905329227513033}
+  - component: {fileID: -8502872529332193582}
   m_Layer: 0
   m_Name: Ammo
   m_TagString: Untagged
@@ -49,7 +50,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -71,6 +72,18 @@ MonoBehaviour:
   isArmor: 0
   isAmmo: 1
   amount: 10
+--- !u!114 &-8502872529332193582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3045517879628842196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a6fb8f22ece4b8428695194402d32d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteRotator
 --- !u!1 &6259613718008352764
 GameObject:
   m_ObjectHideFlags: 0

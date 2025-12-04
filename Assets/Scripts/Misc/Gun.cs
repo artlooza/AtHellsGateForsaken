@@ -44,6 +44,35 @@ public class Gun : MonoBehaviour
         {
             playerMove = FindFirstObjectByType<PlayerMove>();
         }
+
+        // Scan for enemies already in range (in case they spawned inside trigger)
+        InvokeRepeating(nameof(ScanForEnemiesInRange), 0.5f, 1f);
+    }
+
+    void ScanForEnemiesInRange()
+    {
+        // Check for enemies already inside the trigger box
+        Collider[] colliders = Physics.OverlapBox(
+            transform.position + transform.TransformDirection(gunTrigger.center),
+            gunTrigger.size / 2f,
+            transform.rotation,
+            enemyLayerMask
+        );
+
+        foreach (var col in colliders)
+        {
+            Enemy enemy = col.GetComponent<Enemy>();
+            if (enemy != null && !enemyManager.enemiesInTrigger.Contains(enemy))
+            {
+                enemyManager.AddEnemy(enemy);
+            }
+
+            Boss boss = col.GetComponent<Boss>();
+            if (boss != null && !enemyManager.bossesInTrigger.Contains(boss))
+            {
+                enemyManager.AddBoss(boss);
+            }
+        }
     }
 
     // Update is called once per frame

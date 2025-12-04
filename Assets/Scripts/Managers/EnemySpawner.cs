@@ -17,7 +17,8 @@ public class EnemySpawner : MonoBehaviour
     public Vector3 roomSize = new Vector3(10f, 0f, 10f); // Size of spawn area if no spawn points
 
     [Header("Key Reward")]
-    public int killsRequired = 10; // How many enemies to kill to get the key
+    public bool dropKeyOnComplete = true; // Enable/disable key reward
+    public int killsRequired = 10; // How many enemies to kill to complete
     public string keyColor = "red"; // "red", "blue", or "green"
     public GameObject keyPickupPrefab; // Optional: spawn a key pickup instead of giving directly
     public Transform keySpawnPoint; // Where to spawn the key pickup
@@ -131,20 +132,23 @@ public class EnemySpawner : MonoBehaviour
         // Clear remaining enemies (optional - remove if you want them to stay)
         // ClearAllEnemies();
 
-        // Award the key
-        if (keyPickupPrefab != null && keySpawnPoint != null)
+        // Award the key (only if enabled)
+        if (dropKeyOnComplete)
         {
-            // Spawn a key pickup for the player to collect
-            Instantiate(keyPickupPrefab, keySpawnPoint.position, Quaternion.identity);
-        }
-        else if (playerInventory != null)
-        {
-            // Give the key directly to the player
-            playerInventory.GiveKey(keyColor);
-            CanvasManager.Instance.UpdateKeys(keyColor);
-        }
+            if (keyPickupPrefab != null && keySpawnPoint != null)
+            {
+                // Spawn a key pickup for the player to collect
+                Instantiate(keyPickupPrefab, keySpawnPoint.position, Quaternion.identity);
+            }
+            else if (playerInventory != null)
+            {
+                // Give the key directly to the player
+                playerInventory.GiveKey(keyColor);
+                CanvasManager.Instance.UpdateKeys(keyColor);
+            }
 
-        //Debug.Log("Room completed! " + keyColor + " key awarded!");
+            //Debug.Log("Room completed! " + keyColor + " key awarded!");
+        }
     }
 
     private void SpawnEnemy()
