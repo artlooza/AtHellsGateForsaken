@@ -164,6 +164,14 @@ public class EnemySpawner : MonoBehaviour
         if (spawnPosition != Vector3.zero)
         {
             GameObject newEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+
+            // Warp the NavMeshAgent to ensure proper placement on NavMesh
+            NavMeshAgent agent = newEnemy.GetComponent<NavMeshAgent>();
+            if (agent != null)
+            {
+                agent.Warp(spawnPosition);
+            }
+
             spawnedEnemies.Add(newEnemy);
             //Debug.Log("EnemySpawner: Spawned enemy at " + spawnPosition);
         }
@@ -209,7 +217,7 @@ public class EnemySpawner : MonoBehaviour
 
             // Verify position is on NavMesh
             NavMeshHit hit;
-            if (NavMesh.SamplePosition(candidatePosition, out hit, 2f, NavMesh.AllAreas))
+            if (NavMesh.SamplePosition(candidatePosition, out hit, 10f, NavMesh.AllAreas))
             {
                 return hit.position;
             }

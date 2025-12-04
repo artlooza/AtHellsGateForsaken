@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6863043336301700021}
   - component: {fileID: 476887926711308872}
   - component: {fileID: 4697984939464165809}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ArenaZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,5 +72,11 @@ MonoBehaviour:
   arenaSize: {x: 5, y: 1, z: 0.5}
   lockOnEntry: 1
   lockedMessage: Door is locked! Defeat all enemies to escape.
+  dropKeyOnComplete: 0
+  keyColor: red
+  keyPickupPrefab: {fileID: 0}
+  keySpawnPoint: {fileID: 0}
+  battleMusicSource: {fileID: 0}
+  completionJingleSource: {fileID: 0}
   arenaActive: 0
   arenaCompleted: 0
