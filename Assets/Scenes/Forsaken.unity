@@ -190,6 +190,7 @@ Transform:
   m_PrefabInstance: {fileID: 1421183}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1001 &15654306
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -425,6 +426,8 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+=======
+>>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 =======
 >>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 --- !u!1 &17360473 stripped
@@ -761,6 +764,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!1 &75711849
 GameObject:
@@ -1297,6 +1301,8 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+=======
+>>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 =======
 >>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 --- !u!1 &77360195
@@ -3006,8 +3012,13 @@ Transform:
   m_PrefabInstance: {fileID: 203350256}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!43 &205870338
 Mesh:
+=======
+--- !u!1 &218727986
+GameObject:
+>>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 =======
 --- !u!1 &218727986
 GameObject:
@@ -3016,6 +3027,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_Name: pb_Mesh-150480(Clone)(Clone)
   serializedVersion: 12
@@ -3190,6 +3202,8 @@ GameObject:
         m_IndexStart: 0
         m_IndexCount: 0
 =======
+=======
+>>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
   serializedVersion: 6
   m_Component:
   - component: {fileID: 218727987}
@@ -4140,7 +4154,11 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   'm_MeshMetrics[0]': 1.0000002
+=======
+  'm_MeshMetrics[0]': 1.0000056
+>>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 =======
   'm_MeshMetrics[0]': 1.0000056
 >>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
@@ -5792,7 +5810,11 @@ Mesh:
         m_IndexStart: 0
         m_IndexCount: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!43 &312142672
+=======
+--- !u!43 &313989798
+>>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 =======
 --- !u!43 &313989798
 >>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
@@ -5802,7 +5824,11 @@ Mesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Name: pb_Mesh-112304
+=======
+  m_Name: pb_Mesh-73320
+>>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 =======
   m_Name: pb_Mesh-73320
 >>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
@@ -5810,6 +5836,7 @@ Mesh:
   m_SubMeshes:
   - serializedVersion: 2
     firstByte: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
     indexCount: 72
     topology: 0
@@ -5820,6 +5847,8 @@ Mesh:
       m_Center: {x: 23.537868, y: -0.6512132, z: -2.2441483}
       m_Extent: {x: 23.537868, y: 0.9879537, z: 14.814888}
 =======
+=======
+>>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
     indexCount: 36
     topology: 0
     baseVertex: 0
@@ -6009,6 +6038,7 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!1 &314401788
 GameObject:
@@ -6365,6 +6395,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -18.039, z: 0.493}
+=======
+>>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 =======
 >>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 --- !u!43 &319479555
@@ -10480,6 +10512,7 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &546605229
 GameObject:
   m_ObjectHideFlags: 0
@@ -11675,6 +11708,8 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+=======
+>>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 =======
 >>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 --- !u!1001 &547842992
@@ -13915,6 +13950,7 @@ MeshFilter:
   m_GameObject: {fileID: 628146059}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!43 &639503194
 Mesh:
   m_ObjectHideFlags: 0
@@ -14271,6 +14307,8 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+=======
+>>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 =======
 >>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 --- !u!43 &656401964
@@ -23653,6 +23691,7 @@ Transform:
   m_PrefabInstance: {fileID: 1023259138}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &1034286559
 GameObject:
   m_ObjectHideFlags: 0
@@ -24008,6 +24047,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -6.722, z: 0}
+=======
+>>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 =======
 >>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 --- !u!43 &1042918737
@@ -24971,6 +25012,7 @@ Transform:
   - {fileID: 1974093915}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!1001 &1074160334
 PrefabInstance:
@@ -26234,6 +26276,8 @@ MonoBehaviour:
   m_SelectedVertices: 
 =======
 >>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
+=======
+>>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 --- !u!1001 &1084820919
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26765,6 +26809,7 @@ PrefabInstance:
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a11cdfb3f96b86a4eb00a9d29765238e, type: 3}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!43 &1108874401
 Mesh:
   m_ObjectHideFlags: 0
@@ -26944,6 +26989,8 @@ Mesh:
         m_IndexStart: 0
         m_IndexCount: 0
 =======
+=======
+>>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 --- !u!1001 &1111536180
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29111,7 +29158,11 @@ MonoBehaviour:
   assetGuid: 
   m_Mesh: {fileID: 246008073}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_VersionIndex: 36424
+=======
+  m_VersionIndex: 35755
+>>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 =======
   m_VersionIndex: 35755
 >>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
@@ -29347,6 +29398,7 @@ PrefabInstance:
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70d32a9cf3fa1314a9aab783b0870a1e, type: 3}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!4 &1159377203 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8957042833170889850, guid: 70d32a9cf3fa1314a9aab783b0870a1e, type: 3}
@@ -29414,6 +29466,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 212bc7d73c4463241b51ace19530f900, type: 3}
+=======
+>>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 =======
 >>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 --- !u!1001 &1188265567
@@ -32242,6 +32296,7 @@ Mesh:
         m_IndexStart: 0
         m_IndexCount: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &1336389241
 GameObject:
   m_ObjectHideFlags: 0
@@ -32952,6 +33007,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -8.979, z: 0}
+=======
+>>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 =======
 >>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 --- !u!1 &1358146306
@@ -33839,6 +33896,7 @@ MonoBehaviour:
   m_FlipNormals: 0
   isOnGrid: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &1360145043
 GameObject:
   m_ObjectHideFlags: 0
@@ -34549,6 +34607,8 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+=======
+>>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 =======
 >>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 --- !u!1001 &1382099163
@@ -36629,6 +36689,7 @@ MeshFilter:
   m_GameObject: {fileID: 1473945512}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &1482745174
 GameObject:
   m_ObjectHideFlags: 0
@@ -37106,6 +37167,8 @@ MonoBehaviour:
   m_SelectedVertices: 
 =======
 >>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
+=======
+>>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 --- !u!114 &1486500139 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 901986154395074843, guid: 2a3a6293525a1e146a939470f6b70afd, type: 3}
@@ -37122,6 +37185,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1218669529727556474, guid: 2a3a6293525a1e146a939470f6b70afd, type: 3}
   m_PrefabInstance: {fileID: 355225823}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!1 &1503542712
 GameObject:
@@ -37478,6 +37542,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -8.979, z: 0}
+=======
+>>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 =======
 >>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 --- !u!1001 &1520756401
@@ -41685,7 +41751,11 @@ MeshFilter:
   m_GameObject: {fileID: 1647566015}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!43 &1658160471
+=======
+--- !u!43 &1697210152
+>>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 =======
 --- !u!43 &1697210152
 >>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
@@ -41694,6 +41764,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_Name: pb_Mesh-6668(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   serializedVersion: 12
@@ -42052,6 +42123,9 @@ Mesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: pb_Mesh-150446(Clone)(Clone)
+=======
+  m_Name: pb_Mesh-73300
+>>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 =======
   m_Name: pb_Mesh-73300
 >>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
@@ -49788,6 +49862,7 @@ Transform:
   m_PrefabInstance: {fileID: 1996905320}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &2003719084
 GameObject:
   m_ObjectHideFlags: 0
@@ -50871,6 +50946,8 @@ Mesh:
         m_IndexCount: 0
 =======
 >>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
+=======
+>>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 --- !u!1 &2022810357
 GameObject:
   m_ObjectHideFlags: 0
@@ -51126,6 +51203,7 @@ Transform:
   - {fileID: 232475182}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!43 &2069623414
 Mesh:
@@ -51485,6 +51563,8 @@ Mesh:
         m_IndexCount: 0
 =======
 >>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
+=======
+>>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 --- !u!1 &2081805132
 GameObject:
   m_ObjectHideFlags: 0
@@ -51560,6 +51640,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2081805132}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!1 &2090308535
 GameObject:
@@ -52382,6 +52463,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -15.261, z: 0}
+=======
+>>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 =======
 >>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 --- !u!1 &2103328459
@@ -53480,6 +53563,7 @@ SceneRoots:
   - {fileID: 1838483733}
   - {fileID: 1448200235}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 2090308541}
   - {fileID: 1870533870}
   - {fileID: 983622500}
@@ -53495,6 +53579,10 @@ SceneRoots:
   - {fileID: 1970617582}
   - {fileID: 2140618365}
   - {fileID: 15654306}
+=======
+  - {fileID: 1773652613}
+  - {fileID: 751153709}
+>>>>>>> parent of 361e45d (Merge branch 'main' of https://github.com/artlooza/AtHellsGateForsaken)
 =======
   - {fileID: 1773652613}
   - {fileID: 751153709}
