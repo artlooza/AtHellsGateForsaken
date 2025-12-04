@@ -15,6 +15,12 @@ public class ArenaController : MonoBehaviour
     public bool lockOnEntry = true;
     public string lockedMessage = "Door is locked! Defeat all enemies to escape.";
 
+    [Header("Key Reward (Optional)")]
+    public bool dropKeyOnComplete = false;
+    public string keyColor = "red";  // "red", "blue", "green"
+    public GameObject keyPickupPrefab;  // Optional: physical key pickup
+    public Transform keySpawnPoint;  // Where key spawns (defaults to arena center)
+
     [Header("State")]
     public bool arenaActive = false;
     public bool arenaCompleted = false;
@@ -128,6 +134,29 @@ public class ArenaController : MonoBehaviour
         if (exitDoor != null)
         {
             exitDoor.UnlockDoor();
+        }
+
+        // Award key if enabled
+        if (dropKeyOnComplete)
+        {
+            if (keyPickupPrefab != null)
+            {
+                // Spawn physical key pickup
+                Vector3 spawnPos = keySpawnPoint != null ? keySpawnPoint.position : transform.position;
+                Instantiate(keyPickupPrefab, spawnPos, Quaternion.identity);
+                Debug.Log($"[ArenaController] Spawned {keyColor} key at {spawnPos}");
+            }
+            else
+            {
+                // Give key directly to player
+                PlayerInventory inventory = Object.FindFirstObjectByType<PlayerInventory>();
+                if (inventory != null)
+                {
+                    inventory.GiveKey(keyColor);
+                    CanvasManager.Instance.UpdateKeys(keyColor);
+                    Debug.Log($"[ArenaController] Gave {keyColor} key directly to player");
+                }
+            }
         }
 
         Debug.Log("[ArenaController] Arena completed! Door unlocked.");

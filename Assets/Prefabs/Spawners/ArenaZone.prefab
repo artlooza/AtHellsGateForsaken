@@ -52,7 +52,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 7.49, y: 1, z: 1}
+  m_Size: {x: 5, y: 1, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4697984939464165809
 MonoBehaviour:
@@ -69,6 +69,7 @@ MonoBehaviour:
   exitDoor: {fileID: 1749138749786011745, guid: 70d32a9cf3fa1314a9aab783b0870a1e, type: 3}
   prePlacedEnemies: []
   spawner: {fileID: 6194137193834499877, guid: 14f5a5ea681fa794f9e8710503095498, type: 3}
+  arenaSize: {x: 5, y: 1, z: 0.5}
   lockOnEntry: 1
   lockedMessage: Door is locked! Defeat all enemies to escape.
   arenaActive: 0
