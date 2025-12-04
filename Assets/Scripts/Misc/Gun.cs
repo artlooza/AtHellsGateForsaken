@@ -59,11 +59,16 @@ public class Gun : MonoBehaviour
             enemyLayerMask
         );
 
+        Debug.Log($"[GUN SCAN] Found {colliders.Length} colliders on enemyLayerMask");
+
         foreach (var col in colliders)
         {
+            Debug.Log($"[GUN SCAN] Checking collider: {col.name} on layer {LayerMask.LayerToName(col.gameObject.layer)}");
+
             Enemy enemy = col.GetComponent<Enemy>();
             if (enemy != null && !enemyManager.enemiesInTrigger.Contains(enemy))
             {
+                Debug.Log($"[GUN SCAN] Adding enemy: {enemy.name}");
                 enemyManager.AddEnemy(enemy);
             }
 
@@ -157,16 +162,21 @@ public class Gun : MonoBehaviour
 
 
         // damage enemies (iterate over copy to avoid modification errors)
+        Debug.Log($"[GUN FIRE] Enemies in trigger: {enemyManager.enemiesInTrigger.Count}");
         foreach (var enemy in enemyManager.enemiesInTrigger.ToArray())
         {
             // Skip if enemy has been destroyed
             if (enemy == null) continue;
+
+            Debug.Log($"[GUN FIRE] Attempting to shoot enemy: {enemy.name} on layer {LayerMask.LayerToName(enemy.gameObject.layer)}");
 
             var dir = enemy.transform.position - transform.position;
             RaycastHit hit;
             Vector3 rayStart = transform.position + transform.forward * 1f; // Start ray in front of gun
             if (Physics.Raycast(rayStart, dir, out hit, range * 1.5f, raycastLayerMask))
             {
+                Debug.Log($"[GUN FIRE] Raycast hit: {hit.transform.name} on layer {LayerMask.LayerToName(hit.transform.gameObject.layer)}");
+
                 if(hit.transform == enemy.transform)
                 {
                     //range check
@@ -175,12 +185,14 @@ public class Gun : MonoBehaviour
                     if (dist > range * .5f)
                     {
                         //damage enemy small. Damages enemy if they're far with smaller damage.
+                        Debug.Log($"[GUN FIRE] Dealing {smallDamage} damage to {enemy.name} (far range)");
                         enemy.TakeDamage(smallDamage);
 
 
                     }
                     else {
                         //damage enemy big. Damages enemy if they're close with full damage.
+                        Debug.Log($"[GUN FIRE] Dealing {bigDamage} damage to {enemy.name} (close range)");
                         enemy.TakeDamage(bigDamage);
                     }
 
@@ -190,7 +202,15 @@ public class Gun : MonoBehaviour
                     //Debug.DrawRay(transform.position, dir, Color.green);
                     //Debug.Break();
                 }
+                else
+                {
+                    Debug.Log($"[GUN FIRE] Raycast hit wrong object! Hit {hit.transform.name} instead of {enemy.name}");
+                }
 
+            }
+            else
+            {
+                Debug.Log($"[GUN FIRE] Raycast missed! Check raycastLayerMask or enemy layer");
             }
 
 
@@ -267,10 +287,13 @@ public class Gun : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log($"[GUN TRIGGER] Collider entered: {other.name} on layer {LayerMask.LayerToName(other.gameObject.layer)}");
+
         // add enemy to shoot
         Enemy enemy = other.GetComponent<Enemy>();
         if(enemy)
         {
+            Debug.Log($"[GUN TRIGGER] Added enemy to trigger: {enemy.name}");
             enemyManager.AddEnemy(enemy);
         }
 
@@ -278,7 +301,7 @@ public class Gun : MonoBehaviour
         Boss boss = other.GetComponent<Boss>();
         if (boss)
         {
-            //Debug.Log($"[GUN] Boss entered trigger: {boss.name}");
+            Debug.Log($"[GUN TRIGGER] Boss entered trigger: {boss.name}");
             enemyManager.AddBoss(boss);
         }
     }

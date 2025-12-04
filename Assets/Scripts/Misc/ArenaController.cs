@@ -30,7 +30,6 @@ public class ArenaController : MonoBehaviour
     public bool arenaCompleted = false;
 
     private List<GameObject> allEnemies = new List<GameObject>();
-    private bool playerInArena = false;
 
     private void Start()
     {
@@ -70,10 +69,7 @@ public class ArenaController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            playerInArena = false;
-        }
+        // Player exited arena (no action needed currently)
     }
 
     private void Update()
@@ -87,7 +83,6 @@ public class ArenaController : MonoBehaviour
     private void StartArena()
     {
         arenaActive = true;
-        playerInArena = true;
 
         // Lock the exit door
         if (exitDoor != null && lockOnEntry)
