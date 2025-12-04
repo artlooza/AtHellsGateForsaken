@@ -46,13 +46,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   enemyPrefab: {fileID: 8192473718100002222, guid: 0c7a503fd3b347147ad561f9551426aa, type: 3}
-  maxEnemies: 5
-  spawnInterval: 2
+  maxEnemies: 15
+  spawnInterval: 0.5
   minDistanceFromPlayer: 5
   spawnPoints: []
   useRandomPositionInRoom: 1
   roomSize: {x: 10, y: 0, z: 10}
-  killsRequired: 10
+  killsRequired: 15
   keyColor: red
   keyPickupPrefab: {fileID: 0}
   keySpawnPoint: {fileID: 0}

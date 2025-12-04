@@ -19,6 +19,8 @@ public class Door : MonoBehaviour
 
     private bool playerInRange = false;
     private bool isOpen = false;
+    private bool isLocked = false;  // For arena locks
+    private string customLockedMessage = "";  // Custom message when arena locked
     private PlayerInventory playerInventory;
 
     void Update()
@@ -60,6 +62,14 @@ public class Door : MonoBehaviour
     {
         string promptMessage = interactionPrompt;
 
+        // Check if door is arena-locked first
+        if (isLocked)
+        {
+            promptMessage = customLockedMessage;
+            CanvasManager.Instance.ShowInteractionPrompt(promptMessage);
+            return;
+        }
+
         // If door requires a key, check if player has it
         if (requiresKey)
         {
@@ -94,6 +104,15 @@ public class Door : MonoBehaviour
 
     void TryOpenDoor()
     {
+        // Check if door is arena-locked
+        if (isLocked)
+        {
+            // Play locked sound
+            GetComponent<AudioSource>()?.Stop();
+            GetComponent<AudioSource>()?.Play();
+            return;
+        }
+
         bool canOpen = true;
 
         // Check key requirements
@@ -151,5 +170,33 @@ public class Door : MonoBehaviour
             doorAnim.SetTrigger("CloseDoor");
             isOpen = false;
         }
+    }
+
+    // Public methods for arena lock system
+    public void LockDoor(string message = "Door is locked!")
+    {
+        isLocked = true;
+        customLockedMessage = message;
+
+        // Force close the door if it's currently open
+        if (isOpen)
+        {
+            ForceClose();
+        }
+
+        Debug.Log($"[Door] Locked: {message}");
+    }
+
+    public void UnlockDoor()
+    {
+        isLocked = false;
+        customLockedMessage = "";
+        Debug.Log("[Door] Unlocked!");
+    }
+
+    public void ForceClose()
+    {
+        CloseDoor();
+        CanvasManager.Instance.HideInteractionPrompt();
     }
 }

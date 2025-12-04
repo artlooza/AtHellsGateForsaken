@@ -47,6 +47,11 @@ public class CanvasManager : MonoBehaviour
     public GameObject interactionPromptPanel;
     public TextMeshProUGUI interactionPromptText;
 
+    [Header("Tutorial")]
+    public GameObject tutorialPanel;
+    public TextMeshProUGUI tutorialText;
+    private bool hasShownShootTutorial = false;
+    private bool tutorialActive = false;
 
     private static CanvasManager _instance;
     public static CanvasManager Instance { get { return _instance; } }
@@ -218,6 +223,30 @@ public class CanvasManager : MonoBehaviour
         if (interactionPromptPanel != null)
         {
             interactionPromptPanel.SetActive(false);
+        }
+    }
+
+    public void ShowTutorial(string message)
+    {
+        if (hasShownShootTutorial) return;
+
+        hasShownShootTutorial = true;
+        tutorialActive = true;
+        tutorialText.text = message;
+        tutorialPanel.SetActive(true);
+        Time.timeScale = 0f;  // Pause game
+        Cursor.lockState = CursorLockMode.None;  // Optional: show cursor
+    }
+
+    private void Update()
+    {
+        // Check for left click to dismiss tutorial
+        if (tutorialActive && Input.GetMouseButtonDown(0))
+        {
+            tutorialPanel.SetActive(false);
+            tutorialActive = false;
+            Time.timeScale = 1f;  // Resume game
+            Cursor.lockState = CursorLockMode.Locked;  // Re-lock cursor
         }
     }
 }

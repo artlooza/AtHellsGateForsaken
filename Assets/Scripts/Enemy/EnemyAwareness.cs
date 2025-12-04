@@ -19,6 +19,7 @@ public class EnemyAwareness : MonoBehaviour
         if(dist < awarenessRadius)
         {
             isAggro = true;
+            CanvasManager.Instance.ShowTutorial("To defeat the enemy, press left click to shoot");
         }
         if (isAggro)
         {
