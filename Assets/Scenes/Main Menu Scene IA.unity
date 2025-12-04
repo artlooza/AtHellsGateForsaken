@@ -1662,7 +1662,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "W\t=    MOVE FORWARD\nA\t=    MOVE LEFT\nS\t=    MOVE DOWN\nD\t=    MOVE
-    RIGHT\nR\t=    RELOAD\nLMB\t=    FIRE WEAPON"
+    RIGHT\nLEFT SHIFT = RUN\nLMB\t=    FIRE WEAPON"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3cda2efe8dc7b6441953e02cf2e12c37, type: 2}
   m_sharedMaterial: {fileID: -3473455876358015434, guid: 3cda2efe8dc7b6441953e02cf2e12c37, type: 2}
