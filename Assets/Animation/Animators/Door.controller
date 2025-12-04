@@ -17,10 +17,10 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
-  m_TransitionOffset: 0
-  m_ExitTime: 0.5
-  m_HasExitTime: 1
+  m_TransitionDuration: 0.26723105
+  m_TransitionOffset: 0.08797249
+  m_ExitTime: 0.46185577
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -42,9 +42,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.10121761
   m_TransitionOffset: 0
-  m_ExitTime: 0.75
+  m_ExitTime: 0.00000000204488
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -91,7 +91,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DoorOpen
+  m_Name: Open
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -152,9 +152,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.107381284
-  m_TransitionOffset: 0.14090602
-  m_ExitTime: 0.78181195
+  m_TransitionDuration: 0.49169785
+  m_TransitionOffset: 0
+  m_ExitTime: 0.0000000035320378
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -167,7 +167,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CloseDoor
+  m_Name: Closed
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -201,7 +201,7 @@ AnimatorStateMachine:
     m_Position: {x: 30, y: 240, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 257442082032823614}
-    m_Position: {x: 340, y: 240, z: 0}
+    m_Position: {x: 350, y: 240, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7782364991188150737}
     m_Position: {x: 190, y: 440, z: 0}

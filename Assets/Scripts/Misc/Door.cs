@@ -26,6 +26,7 @@ public class Door : MonoBehaviour
     void Update()
     {
         // Check for 'E' key press when player is in range
+        // Only allow opening if door is fully closed
         if (playerInRange && Input.GetKeyDown(KeyCode.E) && !isOpen)
         {
             TryOpenDoor();
