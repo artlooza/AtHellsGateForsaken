@@ -18724,6 +18724,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 612820716525541467, guid: a11cdfb3f96b86a4eb00a9d29765238e, type: 3}
+      propertyPath: m_AgentTypeID
+      value: -629701670
+      objectReference: {fileID: 0}
     - target: {fileID: 2409231438819453913, guid: a11cdfb3f96b86a4eb00a9d29765238e, type: 3}
       propertyPath: m_Name
       value: Boss
@@ -40204,7 +40208,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2356254560166697442, guid: 0c7a503fd3b347147ad561f9551426aa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.9562473
+      value: 2.088
       objectReference: {fileID: 0}
     - target: {fileID: 2356254560166697442, guid: 0c7a503fd3b347147ad561f9551426aa, type: 3}
       propertyPath: m_LocalPosition.z
