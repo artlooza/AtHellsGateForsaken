@@ -21,6 +21,10 @@ public class ArenaController : MonoBehaviour
     public GameObject keyPickupPrefab;  // Optional: physical key pickup
     public Transform keySpawnPoint;  // Where key spawns (defaults to arena center)
 
+    [Header("Audio (Optional)")]
+    public AudioSource battleMusicSource;  // Music that plays during combat
+    public AudioSource completionJingleSource;  // Jingle/sound when arena completes
+
     [Header("State")]
     public bool arenaActive = false;
     public bool arenaCompleted = false;
@@ -91,6 +95,12 @@ public class ArenaController : MonoBehaviour
             exitDoor.LockDoor(lockedMessage);
         }
 
+        // Play battle music
+        if (battleMusicSource != null)
+        {
+            battleMusicSource.Play();
+        }
+
         // Start the spawner if assigned
         if (spawner != null)
         {
@@ -129,6 +139,17 @@ public class ArenaController : MonoBehaviour
     {
         arenaCompleted = true;
         arenaActive = false;
+
+        // Stop battle music and play completion jingle
+        if (battleMusicSource != null && battleMusicSource.isPlaying)
+        {
+            battleMusicSource.Stop();
+        }
+
+        if (completionJingleSource != null)
+        {
+            completionJingleSource.Play();
+        }
 
         // Unlock the exit door
         if (exitDoor != null)
